@@ -9,7 +9,7 @@ namespace vaccine_tracking_system
     class Data
     {
 
-        public static List<Admin> adimns = new List<Admin>();
+        public static List<Admin> admins = new List<Admin>();
         public static Admin currentAdmin;
         //public static List<User> users = new List<User>();
         //public static User currentUser;
@@ -23,7 +23,7 @@ namespace vaccine_tracking_system
             //    new User("noran", "1234", 1231123123, "egypt", "giza", 'f', 19, true)
             //};
 
-            adimns = new List<Admin>(){
+            admins = new List<Admin>(){
                 new Admin("1234", 1234)
                 
             };
