@@ -92,5 +92,23 @@
   <ItemGroup>
     <None Include="Resources\buttonLayout.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\button_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\username.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\buttonoutline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
