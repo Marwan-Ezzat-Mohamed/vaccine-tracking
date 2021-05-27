@@ -31,11 +31,23 @@ namespace vaccine_tracking_system
 
 		}
 		
-		public void display(){}
 		
-		public void edit(long id){}
+		//users can only edit/update their name, password, age, gender and governorate.
+		public void edit(User newUser)
+		{
+			for(int i=0; i<Data.users.Count; i++)
+            {
+				if (newUser.nationalID == Data.users[i].nationalID)
+                {
+					Data.users[i] = newUser;
+					break;
+				}
+					
+            }
+		
+		}
 
-		public void deleteUser(long id)
+		public static void deleteUser(long id)
 		{
 			foreach (User x in Data.users)
 			{
@@ -47,6 +59,17 @@ namespace vaccine_tracking_system
 			
 			}
 		}
+
+		public static void deleteAllUsers()
+		{
+			foreach (User x in Data.users)
+			{
+			   Data.users.Remove(x);
+			}
+		}
+
+		//m7tageen ne3raf mn el user fel ui wa5ed kam dose 3shan ne3raf nsha8al elfunction
+
 		/*public void vaccination()
 		{
 			if (isVaccinated)
