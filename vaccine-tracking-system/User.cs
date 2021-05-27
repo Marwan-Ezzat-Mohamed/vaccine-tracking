@@ -19,7 +19,7 @@ namespace vaccine_tracking_system
 		public bool secondDose;
 		public bool waitingList;
 
-		User(string n, string pass, long id, string gov, char gen, int a, bool isVac)
+		public User(string n, string pass, long id, string gov, char gen, int a, bool isVac)
 		{
 			name = n;
 			password = pass;
