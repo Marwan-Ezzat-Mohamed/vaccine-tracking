@@ -11,7 +11,7 @@ namespace vaccine_tracking_system
 
         public static List<Admin> admins = new List<Admin>();
         public static Admin currentAdmin;
-        //public static List<User> users = new List<User>();
+        public static List<User> users = new List<User>();
         //public static User currentUser;
         public static void setIntialData()
         {
