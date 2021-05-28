@@ -12,67 +12,67 @@ namespace vaccine_tracking_system
 {
     public partial class MainForm : Form
     {
-        //    void setPercentageOfWhoAppliedForVaccination()
-        //    {
-        //        double numberOfWhoAppliedForVaccination = 0;
-        //        foreach (User user in Data.users)
-        //        {
-        //            if (user.waitingList || user.isVaccinated)
-        //            {
-        //                numberOfWhoAppliedForVaccination++;
-        //            }
-        //        }
+        void setPercentageOfWhoAppliedForVaccination()
+        {
+            double numberOfWhoAppliedForVaccination = 0;
+            foreach (User user in Data.users)
+            {
+                if (user.waitingList || user.isVaccinated)
+                {
+                    numberOfWhoAppliedForVaccination++;
+                }
+            }
 
-        //        //percentageOfWhoAppliedBar..Value = (numberOfUnvaccinate / users.size()) * 100;
+            percentageOfWhoAppliedBar.Value = (int)((numberOfWhoAppliedForVaccination / (Data.users.Count)) * 100);
 
-        //    }
-
-
-
-        //    void setPercentageOfUnvaccinated()
-        //    {
-        //        double numberOfUnvaccinate = 0;
-
-        //        foreach (User user in Data.users)
-        //        {
-        //            if (!user.isVaccinated)
-        //            {
-        //                numberOfUnvaccinate++;
-        //            }
-        //        }
-        //        //percentageOfUnvaccinatedBar->Value = (numberOfUnvaccinate / users.size()) * 100;
-
-        //    }
-
-        //    void setPercentageOfWhoGotAtleastOneDosebar()
-        //    {
-        //        double numberOfOneDose = 0;
-        //        foreach (User user in Data.users)
-        //        {
-        //            if (user.firstDose)
-        //            {
-        //                numberOfOneDose++;
-        //            }
-        //        }
-        //        //percentageOfWhoGotAtleastOneDosebar->Value = (numberOfOneDose / users.size()) * 100;
-
-        //    }
+        }
 
 
 
-        //    void setPercentageOfWhoGotFullyVaccinated()
-        //    {
-        //        double numberOfOneDose = 0;
-        //        foreach (User user in Data.users)
-        //        {
-        //            if (user.secondDose || user.isVaccinated)
-        //            {
-        //                numberOfOneDose++;
-        //            }
-        //        }
-        //        //percentageOfWhoGotFullyVaccinatedBar->Value = (numberOfOneDose / users.size()) * 100;
+        void setPercentageOfUnvaccinated()
+        {
+            double numberOfUnvaccinate = 0;
 
-        //    }
+            foreach (User user in Data.users)
+            {
+                if (!user.isVaccinated)
+                {
+                    numberOfUnvaccinate++;
+                }
+            }
+           percentageOfUnvaccinatedBar.Value = (int)((numberOfUnvaccinate / Data.users.Count) * 100);
+
+        }
+
+        void setPercentageOfWhoGotAtleastOneDosebar()
+        {
+            double numberOfOneDose = 0;
+            foreach (User user in Data.users)
+            {
+                if (user.firstDose||user.secondDose||user.isVaccinated)
+                {
+                    numberOfOneDose++;
+                }
+            }
+            percentageOfWhoGotAtleastOneDosebar.Value = (int)((numberOfOneDose / Data.users.Count) * 100);
+
+        }
+
+
+
+        void setPercentageOfWhoGotFullyVaccinated()
+        {
+            double numberOfOneDose = 0;
+            foreach (User user in Data.users)
+            {
+                if (user.secondDose || user.isVaccinated)
+                {
+                    numberOfOneDose++;
+                }
+            }
+            percentageOfWhoGotFullyVaccinatedBar.Value = (int)((numberOfOneDose / Data.users.Count) * 100);
+
+        }
 
 
         public MainForm()
@@ -82,6 +82,14 @@ namespace vaccine_tracking_system
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            setPercentageOfWhoGotFullyVaccinated();
+            setPercentageOfUnvaccinated();
+            setPercentageOfWhoAppliedForVaccination();
+            setPercentageOfWhoGotAtleastOneDosebar();
+
+            userBindingSource.DataSource = Data.users;
+
+
             recordsBtn.ForeColor = Color.White;
             aboutBtnAdmin.ForeColor = Color.White;
             yourInfoBtn.ForeColor = Color.White;
@@ -190,6 +198,30 @@ namespace vaccine_tracking_system
             userPanel.BringToFront();
         }
 
+        
 
+        private void deleteAllUsersButton_Click(object sender, EventArgs e)
+        {
+            
+                if (MessageBox.Show("Are you sure you want to all users ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    
+                    userBindingSource.Clear();
+                }
+            
+        }
+
+        private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (usersGridViewForAdmin.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                string username = usersGridViewForAdmin.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (MessageBox.Show($"Are you sure you want to delete user: {username} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    
+                    userBindingSource.RemoveCurrent();
+                }
+            }
+        }
     }
 }

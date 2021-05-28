@@ -8,16 +8,18 @@ namespace vaccine_tracking_system
 {
     class User
     {
-		public string name;
-		public string password;
-		public string governorate;
-		public long nationalID;
-		public char gender;
-		public int age;
-		public bool isVaccinated;
-		public bool firstDose;
-		public bool secondDose;
-		public bool waitingList;
+        public string name { get; set; } = "";
+        public string password { get; set; } = "";
+        public string governorate { get; set; } = "";
+        public long nationalID { get; set; } = 0;
+        public char gender { get; set; } = 'N';
+        public int age { get; set; } = 0;
+        public bool isVaccinated { get; set; } = false;
+        public bool firstDose { get; set; } = false;
+		public bool secondDose { get; set; } = false;
+		public bool waitingList { get; set; } = false;
+
+
 
 		public User(string n, string pass, long id, string gov, char gen, int a, bool isVac)
 		{
