@@ -81,13 +81,19 @@ namespace vaccine_tracking_system
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.governorateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nationalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isVaccinatedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.firstDoseDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.secondDoseDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.waitingListDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label12 = new System.Windows.Forms.Label();
+            this.firstDoseStatusLabel = new System.Windows.Forms.Label();
+            this.secondDoseStatusLabel = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.numberOfDaysLeft = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -99,6 +105,7 @@ namespace vaccine_tracking_system
             this.panel5.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
+            this.statusPanel.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -332,7 +339,6 @@ namespace vaccine_tracking_system
             this.nameDataGridViewTextBoxColumn,
             this.governorateDataGridViewTextBoxColumn,
             this.nationalIDDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn,
             this.ageDataGridViewTextBoxColumn,
             this.isVaccinatedDataGridViewCheckBoxColumn,
             this.firstDoseDataGridViewCheckBoxColumn,
@@ -578,6 +584,13 @@ namespace vaccine_tracking_system
             // statusPanel
             // 
             this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
+            this.statusPanel.Controls.Add(this.numberOfDaysLeft);
+            this.statusPanel.Controls.Add(this.secondDoseStatusLabel);
+            this.statusPanel.Controls.Add(this.label16);
+            this.statusPanel.Controls.Add(this.firstDoseStatusLabel);
+            this.statusPanel.Controls.Add(this.label12);
+            this.statusPanel.Controls.Add(this.progressBar1);
+            this.statusPanel.Controls.Add(this.label11);
             this.statusPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.statusPanel.Location = new System.Drawing.Point(187, 0);
             this.statusPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -775,14 +788,6 @@ namespace vaccine_tracking_system
             this.nationalIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.nationalIDDataGridViewTextBoxColumn.Width = 80;
             // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genderDataGridViewTextBoxColumn.Width = 65;
-            // 
             // ageDataGridViewTextBoxColumn
             // 
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "age";
@@ -827,14 +832,89 @@ namespace vaccine_tracking_system
             // 
             this.userBindingSource.DataSource = typeof(vaccine_tracking_system.User);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(86, 66);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(338, 25);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Days left untill the second shot";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(49, 104);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(483, 10);
+            this.progressBar1.TabIndex = 1;
+            this.progressBar1.Value = 85;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.label12.ForeColor = System.Drawing.Color.Yellow;
+            this.label12.Location = new System.Drawing.Point(46, 211);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(183, 25);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "First dose status:";
+            // 
+            // firstDoseStatusLabel
+            // 
+            this.firstDoseStatusLabel.AutoSize = true;
+            this.firstDoseStatusLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.firstDoseStatusLabel.ForeColor = System.Drawing.Color.ForestGreen;
+            this.firstDoseStatusLabel.Location = new System.Drawing.Point(235, 211);
+            this.firstDoseStatusLabel.Name = "firstDoseStatusLabel";
+            this.firstDoseStatusLabel.Size = new System.Drawing.Size(76, 25);
+            this.firstDoseStatusLabel.TabIndex = 4;
+            this.firstDoseStatusLabel.Text = "Taken";
+            // 
+            // secondDoseStatusLabel
+            // 
+            this.secondDoseStatusLabel.AutoSize = true;
+            this.secondDoseStatusLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.secondDoseStatusLabel.ForeColor = System.Drawing.Color.Red;
+            this.secondDoseStatusLabel.Location = new System.Drawing.Point(275, 300);
+            this.secondDoseStatusLabel.Name = "secondDoseStatusLabel";
+            this.secondDoseStatusLabel.Size = new System.Drawing.Size(117, 25);
+            this.secondDoseStatusLabel.TabIndex = 6;
+            this.secondDoseStatusLabel.Text = "Not taken";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.label16.ForeColor = System.Drawing.Color.Yellow;
+            this.label16.Location = new System.Drawing.Point(46, 300);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(225, 25);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Second dose status:";
+            // 
+            // numberOfDaysLeft
+            // 
+            this.numberOfDaysLeft.AutoSize = true;
+            this.numberOfDaysLeft.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfDaysLeft.ForeColor = System.Drawing.Color.Yellow;
+            this.numberOfDaysLeft.Location = new System.Drawing.Point(46, 65);
+            this.numberOfDaysLeft.Name = "numberOfDaysLeft";
+            this.numberOfDaysLeft.Size = new System.Drawing.Size(38, 27);
+            this.numberOfDaysLeft.TabIndex = 7;
+            this.numberOfDaysLeft.Text = "26";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 482);
+            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.userPanel);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -852,6 +932,8 @@ namespace vaccine_tracking_system
             this.statisticsPanel.ResumeLayout(false);
             this.statisticsPanel.PerformLayout();
             this.userPanel.ResumeLayout(false);
+            this.statusPanel.ResumeLayout(false);
+            this.statusPanel.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -912,13 +994,19 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn governorateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nationalIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isVaccinatedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn firstDoseDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn secondDoseDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn waitingListDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Label firstDoseStatusLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label secondDoseStatusLabel;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label numberOfDaysLeft;
     }
 }
 

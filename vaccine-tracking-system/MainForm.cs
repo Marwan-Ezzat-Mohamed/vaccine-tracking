@@ -12,6 +12,9 @@ namespace vaccine_tracking_system
 {
     public partial class MainForm : Form
     {
+        //const string REDSTATUSCOLOR;
+        //const string GREENSTATUSCOLOR;
+
         void setPercentageOfWhoAppliedForVaccination()
         {
             double numberOfWhoAppliedForVaccination = 0;
