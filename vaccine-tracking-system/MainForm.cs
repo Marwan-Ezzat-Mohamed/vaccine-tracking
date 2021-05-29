@@ -226,5 +226,53 @@ namespace vaccine_tracking_system
                 }
             }
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool v= false;
+            if (radio_v.Checked)
+            {
+                v = true;
+            }
+            User newUser = new User(name_txt.Text, password_txt.Text,Convert.ToInt64(ID_txt.Text), gov_txt.Text,Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), v);
+            if (v)
+            {
+                if (radio_1d.Checked)
+                {
+                    newUser.vaccination(1);
+                }
+                else if (radio_2d.Checked)
+                {
+                    newUser.vaccination(2);
+                }
+            }
+            else
+            {
+                newUser.vaccination(0);
+            }
+            Data.users.Add(newUser);
+        }
+
+        private void radio_v_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radio_v_CheckedChanged_1(object sender, EventArgs e)
+        {
+            radio_1d.Enabled = true;
+            radio_2d.Enabled = true;
+        }
+
+        private void deleteUser_btn_Click(object sender, EventArgs e)
+        {
+            long inputID = Convert.ToInt64(deleteID_txt.Text);
+            User.deleteUser(inputID);
+        }
     }
 }
