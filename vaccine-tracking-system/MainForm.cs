@@ -161,7 +161,7 @@ namespace vaccine_tracking_system
 
         private void yourInfoBtn_Click(object sender, EventArgs e)
         {
-            yourInfoPanel.BringToFront();
+            panel3.BringToFront();
 
             yourInfoBtn.ForeColor = Color.FromArgb(10, 14, 79);
             yourInfoBtn.TextImageRelation = TextImageRelation.Overlay;
@@ -234,6 +234,7 @@ namespace vaccine_tracking_system
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             bool v= false;
             if (radio_v.Checked)
             {
@@ -273,6 +274,31 @@ namespace vaccine_tracking_system
         {
             long inputID = Convert.ToInt64(deleteID_txt.Text);
             User.deleteUser(inputID);
+        }
+
+        private void delete_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+            signUpPanel.BringToFront();
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+            panel2.BringToFront();
         }
     }
 }

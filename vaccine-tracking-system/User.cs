@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vaccine_tracking_system
 {
-    class User
+    public class User
     {
         public string name { get; set; } = "";
         public string password { get; set; } = "";
