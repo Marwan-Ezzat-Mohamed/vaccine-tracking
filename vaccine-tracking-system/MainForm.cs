@@ -43,7 +43,7 @@ namespace vaccine_tracking_system
                     numberOfUnvaccinate++;
                 }
             }
-           percentageOfUnvaccinatedBar.Value = (int)((numberOfUnvaccinate / Data.users.Count) * 100);
+            percentageOfUnvaccinatedBar.Value = (int)((numberOfUnvaccinate / Data.users.Count) * 100);
 
         }
 
@@ -52,7 +52,7 @@ namespace vaccine_tracking_system
             double numberOfOneDose = 0;
             foreach (User user in Data.users)
             {
-                if (user.firstDose||user.secondDose||user.isVaccinated)
+                if (user.firstDose || user.secondDose || user.isVaccinated)
                 {
                     numberOfOneDose++;
                 }
@@ -161,7 +161,7 @@ namespace vaccine_tracking_system
 
         private void yourInfoBtn_Click(object sender, EventArgs e)
         {
-            panel3.BringToFront();
+            yourInfoPanel.BringToFront();
 
             yourInfoBtn.ForeColor = Color.FromArgb(10, 14, 79);
             yourInfoBtn.TextImageRelation = TextImageRelation.Overlay;
@@ -175,7 +175,7 @@ namespace vaccine_tracking_system
 
         private void aboutUserBtn_Click(object sender, EventArgs e)
         {
-           aboutUserPanel.BringToFront();
+            aboutUserPanel.BringToFront();
 
             aboutUserBtn.ForeColor = Color.FromArgb(10, 14, 79);
             aboutUserBtn.TextImageRelation = TextImageRelation.Overlay;
@@ -193,40 +193,42 @@ namespace vaccine_tracking_system
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            adminPanel.BringToFront();
+
         }
 
         private void loginBtn1_Click(object sender, EventArgs e)
         {
-            userPanel.BringToFront();
-            foreach (User x in Data.users)
+           
+            bool founduser = false;
+            foreach (User user in Data.users)
             {
-                bool founduser = false;
-                if (Convert.ToInt64(natID_login.Text) == x.nationalID && pass_login.Text.Equals(x.password))
+                if (natID_login.Text!=""&& pass_login.Text!=""&& Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
                 {
-                    Data.currentUser = x;
+                    Data.currentUser = user;
+                    userPanel.BringToFront();
+                    label15.Text = $"Hello, {user.name}";
                     founduser = true;
                     //w b3deen yroo7 3l panel elly ba3daha ayan kanet ba2a
                 }
-                if (!founduser)
-                {
-                    MessageBox.Show("invalid national ID or password. try again.");
-                }
+            }
+            if (!founduser)
+            {
+                MessageBox.Show("invalid national ID or password. try again.");
             }
 
         }
 
-        
+
 
         private void deleteAllUsersButton_Click(object sender, EventArgs e)
         {
-            
-                if (MessageBox.Show("Are you sure you want to all users ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    
-                    userBindingSource.Clear();
-                }
-            
+
+            if (MessageBox.Show("Are you sure you want to all users ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                userBindingSource.Clear();
+            }
+
         }
 
         private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -236,7 +238,7 @@ namespace vaccine_tracking_system
                 string username = usersGridViewForAdmin.Rows[e.RowIndex].Cells[0].Value.ToString();
                 if (MessageBox.Show($"Are you sure you want to delete user: {username} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
+
                     userBindingSource.RemoveCurrent();
                 }
             }
@@ -249,13 +251,13 @@ namespace vaccine_tracking_system
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            bool v= false;
+
+            bool v = false;
             if (radio_v.Checked)
             {
                 v = true;
             }
-            User newUser = new User(name_txt.Text, password_txt.Text,Convert.ToInt64(ID_txt.Text), gov_txt.Text,Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), v);
+            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), v);
             if (v)
             {
                 if (radio_1d.Checked)
@@ -276,7 +278,7 @@ namespace vaccine_tracking_system
 
         private void radio_v_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void radio_v_CheckedChanged_1(object sender, EventArgs e)
@@ -334,7 +336,7 @@ namespace vaccine_tracking_system
 
         private void userLogin_btn_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void edit_btn_Click(object sender, EventArgs e)
