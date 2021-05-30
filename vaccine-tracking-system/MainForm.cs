@@ -321,13 +321,17 @@ namespace vaccine_tracking_system
         {
             foreach(User x in Data.users)
             {
+                bool founduser = false;
                 if (Convert.ToInt64(natID_login.Text) == x.nationalID && pass_login.Text.Equals(x.password))
                 {
                     Data.currentUser = x;
+                    founduser = true;
                     //w b3deen yroo7 3l panel elly ba3daha ayan kanet ba2a
                 }
-                else
+                if (!founduser)
+                {
                     MessageBox.Show("invalid national ID or password. try again.");
+                }
             }
         }
 
