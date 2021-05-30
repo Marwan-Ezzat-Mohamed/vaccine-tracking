@@ -272,8 +272,14 @@ namespace vaccine_tracking_system
 
         private void deleteUser_btn_Click(object sender, EventArgs e)
         {
-            long inputID = Convert.ToInt64(deleteID_txt.Text);
-            User.deleteUser(inputID);
+
+            if (Data.currentUser.password.Equals(deleteUser_txt.Text))
+            {
+
+                User.deleteUser(Data.currentUser.nationalID);
+            }
+            else
+                MessageBox.Show("invalid password.");
         }
 
         private void delete_panel_Paint(object sender, PaintEventArgs e)
@@ -299,6 +305,42 @@ namespace vaccine_tracking_system
         private void label28_Click(object sender, EventArgs e)
         {
             panel2.BringToFront();
+        }
+
+        private void deleteUser_btn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteID_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userLogin_btn_Click(object sender, EventArgs e)
+        {
+            foreach(User x in Data.users)
+            {
+                if (Convert.ToInt64(natID_login.Text) == x.nationalID && pass_login.Text.Equals(x.password))
+                {
+                    Data.currentUser = x;
+                    //w b3deen yroo7 3l panel elly ba3daha ayan kanet ba2a
+                }
+                else
+                    MessageBox.Show("invalid national ID or password. try again.");
+            }
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            if (Data.currentUser.password.Equals(oldPass_txt.Text))
+            {
+                Data.currentUser.password = newpass_txt.Text;
+                Data.currentUser.governorate = newGov_txt.Text;
+                //el data el edited kda saved fel current user bs e7na msh 3arfeen n7otaha emta tany fel list 
+            }
+            else
+                MessageBox.Show("old password doesn't match.");
         }
     }
 }
