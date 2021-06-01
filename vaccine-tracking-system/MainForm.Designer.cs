@@ -37,6 +37,9 @@ namespace vaccine_tracking_system
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.loginBtn1 = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -44,19 +47,43 @@ namespace vaccine_tracking_system
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pass_login = new System.Windows.Forms.TextBox();
+            this.natID_login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.signUpPanel = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.radio_nv = new System.Windows.Forms.RadioButton();
+            this.radio_v = new System.Windows.Forms.RadioButton();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.radio_1d = new System.Windows.Forms.RadioButton();
+            this.radio_2d = new System.Windows.Forms.RadioButton();
+            this.gov_txt = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.gender_txt = new System.Windows.Forms.TextBox();
+            this.submit_user = new System.Windows.Forms.Button();
+            this.age_txt = new System.Windows.Forms.TextBox();
+            this.ID_txt = new System.Windows.Forms.TextBox();
+            this.password_txt = new System.Windows.Forms.TextBox();
+            this.name_txt = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.adminPanel = new System.Windows.Forms.Panel();
             this.recordsPanel = new System.Windows.Forms.Panel();
             this.deleteUserBtn = new System.Windows.Forms.Button();
             this.usersGridViewForAdmin = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.logoutAdmin = new System.Windows.Forms.Button();
             this.aboutBtnAdmin = new System.Windows.Forms.Button();
             this.recordsBtn = new System.Windows.Forms.Button();
             this.statisticsBtn = new System.Windows.Forms.Button();
+            this.aboutAdminPanel = new System.Windows.Forms.Panel();
             this.statisticsPanel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,7 +93,6 @@ namespace vaccine_tracking_system
             this.percentageOfWhoGotAtleastOneDosebar = new System.Windows.Forms.ProgressBar();
             this.percentageOfWhoAppliedBar = new System.Windows.Forms.ProgressBar();
             this.percentageOfUnvaccinatedBar = new System.Windows.Forms.ProgressBar();
-            this.aboutAdminPanel = new System.Windows.Forms.Panel();
             this.userPanel = new System.Windows.Forms.Panel();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.numberOfDaysLeft = new System.Windows.Forms.Label();
@@ -100,18 +126,21 @@ namespace vaccine_tracking_system
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.signUpPanel.SuspendLayout();
             this.adminPanel.SuspendLayout();
             this.recordsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridViewForAdmin)).BeginInit();
             this.panel5.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
-            this.statusPanel.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.statusPanel.SuspendLayout();
+            this.yourInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,23 +180,54 @@ namespace vaccine_tracking_system
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
-            this.mainPanel.Controls.Add(this.loginBtn1);
-            this.mainPanel.Controls.Add(this.loginBtn);
-            this.mainPanel.Controls.Add(this.label10);
-            this.mainPanel.Controls.Add(this.label6);
-            this.mainPanel.Controls.Add(this.pictureBox3);
-            this.mainPanel.Controls.Add(this.pictureBox2);
-            this.mainPanel.Controls.Add(this.label5);
-            this.mainPanel.Controls.Add(this.label4);
-            this.mainPanel.Controls.Add(this.textBox2);
-            this.mainPanel.Controls.Add(this.textBox1);
-            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.panel2);
+            this.mainPanel.Controls.Add(this.signUpPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1083, 593);
             this.mainPanel.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label27);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.loginBtn1);
+            this.panel2.Controls.Add(this.loginBtn);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.pass_login);
+            this.panel2.Controls.Add(this.natID_login);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(815, 482);
+            this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(237, 350);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(43, 13);
+            this.label27.TabIndex = 7;
+            this.label27.Text = "Sign up";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Location = new System.Drawing.Point(277, 287);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(225, 2);
+            this.label4.TabIndex = 6;
             // 
             // loginBtn1
             // 
@@ -217,6 +277,7 @@ namespace vaccine_tracking_system
             this.label10.Size = new System.Drawing.Size(88, 21);
             this.label10.TabIndex = 4;
             this.label10.Text = "Password";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label6
             // 
@@ -227,7 +288,7 @@ namespace vaccine_tracking_system
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 21);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Username";
+            this.label6.Text = "National ID";
             // 
             // pictureBox3
             // 
@@ -259,7 +320,7 @@ namespace vaccine_tracking_system
             this.label5.Size = new System.Drawing.Size(300, 2);
             this.label5.TabIndex = 2;
             // 
-            // label4
+            // pass_login
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(391, 260);
@@ -267,7 +328,7 @@ namespace vaccine_tracking_system
             this.label4.Size = new System.Drawing.Size(300, 2);
             this.label4.TabIndex = 2;
             // 
-            // textBox2
+            // natID_login
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -304,11 +365,283 @@ namespace vaccine_tracking_system
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome!";
             // 
+            // signUpPanel
+            // 
+            this.signUpPanel.Controls.Add(this.label28);
+            this.signUpPanel.Controls.Add(this.radio_nv);
+            this.signUpPanel.Controls.Add(this.radio_v);
+            this.signUpPanel.Controls.Add(this.label22);
+            this.signUpPanel.Controls.Add(this.label23);
+            this.signUpPanel.Controls.Add(this.radio_1d);
+            this.signUpPanel.Controls.Add(this.radio_2d);
+            this.signUpPanel.Controls.Add(this.gov_txt);
+            this.signUpPanel.Controls.Add(this.label24);
+            this.signUpPanel.Controls.Add(this.gender_txt);
+            this.signUpPanel.Controls.Add(this.submit_user);
+            this.signUpPanel.Controls.Add(this.age_txt);
+            this.signUpPanel.Controls.Add(this.ID_txt);
+            this.signUpPanel.Controls.Add(this.password_txt);
+            this.signUpPanel.Controls.Add(this.name_txt);
+            this.signUpPanel.Controls.Add(this.label21);
+            this.signUpPanel.Controls.Add(this.label20);
+            this.signUpPanel.Controls.Add(this.label19);
+            this.signUpPanel.Controls.Add(this.label18);
+            this.signUpPanel.Controls.Add(this.label17);
+            this.signUpPanel.Controls.Add(this.label14);
+            this.signUpPanel.Controls.Add(this.label13);
+            this.signUpPanel.Location = new System.Drawing.Point(-5, 0);
+            this.signUpPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signUpPanel.Name = "signUpPanel";
+            this.signUpPanel.Size = new System.Drawing.Size(818, 482);
+            this.signUpPanel.TabIndex = 0;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(238, 457);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(33, 13);
+            this.label28.TabIndex = 30;
+            this.label28.Text = "Login";
+            this.label28.Click += new System.EventHandler(this.label28_Click);
+            // 
+            // radio_nv
+            // 
+            this.radio_nv.AutoSize = true;
+            this.radio_nv.Location = new System.Drawing.Point(334, 361);
+            this.radio_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_nv.Name = "radio_nv";
+            this.radio_nv.Size = new System.Drawing.Size(99, 17);
+            this.radio_nv.TabIndex = 29;
+            this.radio_nv.TabStop = true;
+            this.radio_nv.Text = "Not Vaccinated";
+            this.radio_nv.UseVisualStyleBackColor = true;
+            // 
+            // radio_v
+            // 
+            this.radio_v.AutoSize = true;
+            this.radio_v.Location = new System.Drawing.Point(238, 362);
+            this.radio_v.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_v.Name = "radio_v";
+            this.radio_v.Size = new System.Drawing.Size(79, 17);
+            this.radio_v.TabIndex = 28;
+            this.radio_v.TabStop = true;
+            this.radio_v.Text = "Vaccinated";
+            this.radio_v.UseVisualStyleBackColor = true;
+            this.radio_v.CheckedChanged += new System.EventHandler(this.radio_v_CheckedChanged_1);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(50, 353);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(169, 25);
+            this.label22.TabIndex = 27;
+            this.label22.Text = "Vaccination Status";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(51, 397);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(127, 25);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "No. Of Doses";
+            // 
+            // radio_1d
+            // 
+            this.radio_1d.AutoSize = true;
+            this.radio_1d.Enabled = false;
+            this.radio_1d.ForeColor = System.Drawing.Color.White;
+            this.radio_1d.Location = new System.Drawing.Point(237, 405);
+            this.radio_1d.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_1d.Name = "radio_1d";
+            this.radio_1d.Size = new System.Drawing.Size(69, 17);
+            this.radio_1d.TabIndex = 26;
+            this.radio_1d.TabStop = true;
+            this.radio_1d.Text = "one dose";
+            this.radio_1d.UseVisualStyleBackColor = true;
+            // 
+            // radio_2d
+            // 
+            this.radio_2d.AutoSize = true;
+            this.radio_2d.Enabled = false;
+            this.radio_2d.ForeColor = System.Drawing.Color.White;
+            this.radio_2d.Location = new System.Drawing.Point(334, 405);
+            this.radio_2d.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_2d.Name = "radio_2d";
+            this.radio_2d.Size = new System.Drawing.Size(73, 17);
+            this.radio_2d.TabIndex = 24;
+            this.radio_2d.TabStop = true;
+            this.radio_2d.Text = "two doses";
+            this.radio_2d.UseVisualStyleBackColor = true;
+            // 
+            // gov_txt
+            // 
+            this.gov_txt.Location = new System.Drawing.Point(239, 221);
+            this.gov_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gov_txt.Name = "gov_txt";
+            this.gov_txt.Size = new System.Drawing.Size(134, 20);
+            this.gov_txt.TabIndex = 23;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(381, 265);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(236, 13);
+            this.label24.TabIndex = 22;
+            this.label24.Text = "please enter \'M\' for Male and \'F\' for Female.";
+            // 
+            // gender_txt
+            // 
+            this.gender_txt.Location = new System.Drawing.Point(238, 264);
+            this.gender_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gender_txt.Name = "gender_txt";
+            this.gender_txt.Size = new System.Drawing.Size(134, 20);
+            this.gender_txt.TabIndex = 21;
+            // 
+            // submit_user
+            // 
+            this.submit_user.Location = new System.Drawing.Point(498, 404);
+            this.submit_user.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.submit_user.Name = "submit_user";
+            this.submit_user.Size = new System.Drawing.Size(87, 31);
+            this.submit_user.TabIndex = 20;
+            this.submit_user.Text = "Submit";
+            this.submit_user.UseVisualStyleBackColor = true;
+            this.submit_user.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // age_txt
+            // 
+            this.age_txt.Location = new System.Drawing.Point(238, 310);
+            this.age_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.age_txt.Name = "age_txt";
+            this.age_txt.Size = new System.Drawing.Size(134, 20);
+            this.age_txt.TabIndex = 11;
+            // 
+            // ID_txt
+            // 
+            this.ID_txt.Location = new System.Drawing.Point(238, 180);
+            this.ID_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ID_txt.Name = "ID_txt";
+            this.ID_txt.Size = new System.Drawing.Size(134, 20);
+            this.ID_txt.TabIndex = 10;
+            // 
+            // password_txt
+            // 
+            this.password_txt.Location = new System.Drawing.Point(238, 136);
+            this.password_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.password_txt.Name = "password_txt";
+            this.password_txt.Size = new System.Drawing.Size(134, 20);
+            this.password_txt.TabIndex = 9;
+            // 
+            // name_txt
+            // 
+            this.name_txt.Location = new System.Drawing.Point(238, 89);
+            this.name_txt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name_txt.Name = "name_txt";
+            this.name_txt.Size = new System.Drawing.Size(134, 20);
+            this.name_txt.TabIndex = 8;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(50, 306);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 25);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Age";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(50, 262);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 25);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "Gender*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(50, 217);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(119, 25);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Governorate";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(50, 176);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 25);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "National ID";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(50, 130);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(92, 25);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Password";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(50, 83);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 25);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Name";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(44, 28);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(292, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Please enter the following data:";
+            // 
             // adminPanel
             // 
             this.adminPanel.Controls.Add(this.recordsPanel);
             this.adminPanel.Controls.Add(this.panel5);
-            this.adminPanel.Controls.Add(this.statisticsPanel);
             this.adminPanel.Controls.Add(this.aboutAdminPanel);
             this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPanel.Location = new System.Drawing.Point(0, 0);
@@ -392,6 +725,16 @@ namespace vaccine_tracking_system
             this.usersGridViewForAdmin.Size = new System.Drawing.Size(833, 508);
             this.usersGridViewForAdmin.TabIndex = 0;
             this.usersGridViewForAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridViewForAdmin_CellContentClick);
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.DataPropertyName = "name";
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Width = 44;
             // 
             // panel5
             // 
@@ -490,6 +833,14 @@ namespace vaccine_tracking_system
             this.statisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statisticsBtn.UseVisualStyleBackColor = false;
             this.statisticsBtn.Click += new System.EventHandler(this.statisticsBtn_Click);
+            // 
+            // aboutAdminPanel
+            // 
+            this.aboutAdminPanel.Location = new System.Drawing.Point(188, 0);
+            this.aboutAdminPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aboutAdminPanel.Name = "aboutAdminPanel";
+            this.aboutAdminPanel.Size = new System.Drawing.Size(625, 482);
+            this.aboutAdminPanel.TabIndex = 0;
             // 
             // statisticsPanel
             // 
@@ -615,10 +966,11 @@ namespace vaccine_tracking_system
             // 
             // userPanel
             // 
-            this.userPanel.Controls.Add(this.statusPanel);
-            this.userPanel.Controls.Add(this.yourInfoPanel);
-            this.userPanel.Controls.Add(this.aboutUserPanel);
+            this.userPanel.BackColor = System.Drawing.Color.DarkBlue;
             this.userPanel.Controls.Add(this.panel8);
+            this.userPanel.Controls.Add(this.statusPanel);
+            this.userPanel.Controls.Add(this.aboutUserPanel);
+            this.userPanel.Controls.Add(this.yourInfoPanel);
             this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userPanel.Location = new System.Drawing.Point(0, 0);
             this.userPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -910,7 +1262,7 @@ namespace vaccine_tracking_system
             this.governorateDataGridViewTextBoxColumn.ReadOnly = true;
             this.governorateDataGridViewTextBoxColumn.Width = 112;
             // 
-            // nationalIDDataGridViewTextBoxColumn
+            // statusPanel
             // 
             this.nationalIDDataGridViewTextBoxColumn.DataPropertyName = "nationalID";
             this.nationalIDDataGridViewTextBoxColumn.HeaderText = "National ID";
@@ -919,7 +1271,7 @@ namespace vaccine_tracking_system
             this.nationalIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.nationalIDDataGridViewTextBoxColumn.Width = 101;
             // 
-            // ageDataGridViewTextBoxColumn
+            // numberOfDaysLeft
             // 
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "age";
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
@@ -928,7 +1280,7 @@ namespace vaccine_tracking_system
             this.ageDataGridViewTextBoxColumn.ReadOnly = true;
             this.ageDataGridViewTextBoxColumn.Width = 62;
             // 
-            // isVaccinatedDataGridViewCheckBoxColumn
+            // secondDoseStatusLabel
             // 
             this.isVaccinatedDataGridViewCheckBoxColumn.DataPropertyName = "isVaccinated";
             this.isVaccinatedDataGridViewCheckBoxColumn.HeaderText = "Vaccinated";
@@ -937,7 +1289,7 @@ namespace vaccine_tracking_system
             this.isVaccinatedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isVaccinatedDataGridViewCheckBoxColumn.Width = 83;
             // 
-            // firstDoseDataGridViewCheckBoxColumn
+            // label16
             // 
             this.firstDoseDataGridViewCheckBoxColumn.DataPropertyName = "firstDose";
             this.firstDoseDataGridViewCheckBoxColumn.HeaderText = "First Dose";
@@ -946,7 +1298,7 @@ namespace vaccine_tracking_system
             this.firstDoseDataGridViewCheckBoxColumn.ReadOnly = true;
             this.firstDoseDataGridViewCheckBoxColumn.Width = 67;
             // 
-            // secondDoseDataGridViewCheckBoxColumn
+            // firstDoseStatusLabel
             // 
             this.secondDoseDataGridViewCheckBoxColumn.DataPropertyName = "secondDose";
             this.secondDoseDataGridViewCheckBoxColumn.HeaderText = "Second Dose";
@@ -955,9 +1307,13 @@ namespace vaccine_tracking_system
             this.secondDoseDataGridViewCheckBoxColumn.ReadOnly = true;
             this.secondDoseDataGridViewCheckBoxColumn.Width = 91;
             // 
-            // userBindingSource
+            // progressBar1
             // 
-            this.userBindingSource.DataSource = typeof(vaccine_tracking_system.User);
+            this.progressBar1.Location = new System.Drawing.Point(49, 104);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(483, 10);
+            this.progressBar1.TabIndex = 1;
+            this.progressBar1.Value = 85;
             // 
             // label13
             // 
@@ -987,9 +1343,12 @@ namespace vaccine_tracking_system
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
-            this.mainPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.signUpPanel.ResumeLayout(false);
+            this.signUpPanel.PerformLayout();
             this.adminPanel.ResumeLayout(false);
             this.recordsPanel.ResumeLayout(false);
             this.recordsPanel.PerformLayout();
@@ -998,12 +1357,14 @@ namespace vaccine_tracking_system
             this.statisticsPanel.ResumeLayout(false);
             this.statisticsPanel.PerformLayout();
             this.userPanel.ResumeLayout(false);
-            this.statusPanel.ResumeLayout(false);
-            this.statusPanel.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.statusPanel.ResumeLayout(false);
+            this.statusPanel.PerformLayout();
+            this.yourInfoPanel.ResumeLayout(false);
+            this.yourInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1029,21 +1390,20 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.Button aboutBtnAdmin;
         private System.Windows.Forms.Button recordsBtn;
         private System.Windows.Forms.Button statisticsBtn;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox natID_login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox pass_login;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Panel recordsPanel;
         private System.Windows.Forms.Panel aboutAdminPanel;
         private System.Windows.Forms.Button loginBtn1;
         private System.Windows.Forms.Panel userPanel;
-        private System.Windows.Forms.Panel yourInfoPanel;
+        private System.Windows.Forms.Panel signUpPanel;
         private System.Windows.Forms.Panel aboutUserPanel;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button logutBtn;

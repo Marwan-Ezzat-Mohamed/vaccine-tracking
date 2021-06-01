@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vaccine_tracking_system
 {
-    class User
+    public class User
     {
         public string name { get; set; } = "";
         public string password { get; set; } = "";
@@ -87,13 +87,10 @@ namespace vaccine_tracking_system
 
 		//m7tageen ne3raf mn el user fel ui wa5ed kam dose 3shan ne3raf nsha8al elfunction
 
-		/*public void vaccination()
+		public void vaccination(int ans)
 		{
 			if (isVaccinated)
 			{
-
-				//yakhod el data mn el form
-				int ans = 0;
 
 
 				if (ans == 1)
@@ -120,7 +117,7 @@ namespace vaccine_tracking_system
 				secondDose = false;
 				waitingList = true;
 			}
-		}*/
+		}
 
 	}
 }

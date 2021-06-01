@@ -214,15 +214,30 @@ namespace vaccine_tracking_system
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            adminPanel.BringToFront();
+
         }
 
         private void loginBtn1_Click(object sender, EventArgs e)
         {
-            userPanel.BringToFront();
+           
+            bool founduser = false;
+            foreach (User user in Data.users)
+            {
+                if (natID_login.Text!=""&& pass_login.Text!=""&& Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
+                {
+                    Data.currentUser = user;
+                    userPanel.BringToFront();
+                    label15.Text = $"Hello, {user.name}";
+                    founduser = true;
+                    //w b3deen yroo7 3l panel elly ba3daha ayan kanet ba2a
+                }
+            }
+            if (!founduser)
+            {
+                MessageBox.Show("invalid national ID or password. try again.");
+            }
 
         }
-        //
 
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
@@ -237,14 +252,122 @@ namespace vaccine_tracking_system
 
         private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = usersGridViewForAdmin.CurrentRow.Index;
-            if (!Data.users[index].isVaccinated)
+            if (usersGridViewForAdmin.Columns[e.ColumnIndex].Name == "Delete")
             {
-                Data.users[index].nextDate = dateTimePicker1.Value;
-                Data.users[index].date = Data.users[1].nextDate.ToShortDateString();
+                string username = usersGridViewForAdmin.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (MessageBox.Show($"Are you sure you want to delete user: {username} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    userBindingSource.RemoveCurrent();
+                }
             }
+        }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            bool v = false;
+            if (radio_v.Checked)
+            {
+                v = true;
+            }
+            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), v);
+            if (v)
+            {
+                if (radio_1d.Checked)
+                {
+                    newUser.vaccination(1);
+                }
+                else if (radio_2d.Checked)
+                {
+                    newUser.vaccination(2);
+                }
+            }
+            else
+            {
+                newUser.vaccination(0);
+            }
+            Data.users.Add(newUser);
+        }
+
+        private void radio_v_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radio_v_CheckedChanged_1(object sender, EventArgs e)
+        {
+            radio_1d.Enabled = true;
+            radio_2d.Enabled = true;
+        }
+
+        private void deleteUser_btn_Click(object sender, EventArgs e)
+        {
+
+            if (Data.currentUser.password.Equals(deleteUser_txt.Text))
+            {
+
+                User.deleteUser(Data.currentUser.nationalID);
+            }
+            else
+                MessageBox.Show("invalid password.");
+        }
+
+        private void delete_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+            signUpPanel.BringToFront();
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+            panel2.BringToFront();
+        }
+
+        private void deleteUser_btn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteID_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userLogin_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            if (Data.currentUser.password.Equals(oldPass_txt.Text))
+            {
+                Data.currentUser.password = newpass_txt.Text;
+                Data.currentUser.governorate = newGov_txt.Text;
+                //el data el edited kda saved fel current user bs e7na msh 3arfeen n7otaha emta tany fel list 
+            }
+            else
+                MessageBox.Show("old password doesn't match.");
         }
     }
 }
