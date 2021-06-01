@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace vaccine_tracking_system
 {
@@ -16,16 +12,16 @@ namespace vaccine_tracking_system
         public static void setIntialData()
         {
             users = new List<User>(){
-                new User("marwan", "1234", 123123,  "cairo", 'M', 19, true),
+                new User("marwan", "1234", 123123,  "cairo", 'M', 19, false),
                 new User("joe", "1234", 123,  "giza", 'M', 19, false),
                 new User("mina", "1234", 123123123, "giza", 'M', 19, false),
-                new User("khadiga", "1234", 123123123123,  "giza", 'f', 19, true),
+                new User("khadiga", "1234", 123123123123,  "giza", 'f', 19, false),
                 new User("noran", "1234", 1231123123,  "giza", 'f', 19, true)
             };
 
             admins = new List<Admin>(){
                 new Admin("1234", 1234)
-                
+
             };
 
         }

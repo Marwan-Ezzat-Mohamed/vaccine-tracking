@@ -13,12 +13,15 @@ namespace vaccine_tracking_system
         public string governorate { get; set; } = "";
         public long nationalID { get; set; } = 0;
         public char gender { get; set; } = 'N';
+
+		/// lazem date of birth 3ashan el age beyt8ayar 😐
         public int age { get; set; } = 0;
         public bool isVaccinated { get; set; } = false;
         public bool firstDose { get; set; } = false;
 		public bool secondDose { get; set; } = false;
 		public bool waitingList { get; set; } = false;
-
+		public string date { get; set; } = "";
+		public DateTime  nextDate { get; set; } =new DateTime(1111,11,11);
 
 
 		public User(string n, string pass, long id, string gov, char gen, int a, bool isVac)
@@ -28,9 +31,21 @@ namespace vaccine_tracking_system
 			nationalID = id;
 			governorate = gov;
 			gender = gen;
+
 			age = a;
 			isVaccinated = isVac;
 
+			if(isVac)
+			{
+				date = "";
+				nextDate = DateTime.Today;
+			}
+            else
+            {
+				date = "Waiting List";
+				nextDate =new DateTime(1111,11,11);
+				//nextDate =new DateTime(1515, 15, 15);
+            }
 		}
 		
 		
