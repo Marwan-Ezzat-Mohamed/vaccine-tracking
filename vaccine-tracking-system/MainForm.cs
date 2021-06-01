@@ -15,6 +15,7 @@ namespace vaccine_tracking_system
         //const string REDSTATUSCOLOR;
         //const string GREENSTATUSCOLOR;
 
+        User currentUser;
         void setPercentageOfWhoAppliedForVaccination()
         {
             double numberOfWhoAppliedForVaccination = 0;
@@ -29,8 +30,6 @@ namespace vaccine_tracking_system
             percentageOfWhoAppliedBar.Value = (int)((numberOfWhoAppliedForVaccination / (Data.users.Count)) * 100);
 
         }
-
-
 
         void setPercentageOfUnvaccinated()
         {
@@ -62,7 +61,6 @@ namespace vaccine_tracking_system
         }
 
 
-
         void setPercentageOfWhoGotFullyVaccinated()
         {
             double numberOfOneDose = 0;
@@ -78,6 +76,7 @@ namespace vaccine_tracking_system
         }
 
 
+       
         public MainForm()
         {
             InitializeComponent();
@@ -90,6 +89,7 @@ namespace vaccine_tracking_system
             setPercentageOfWhoAppliedForVaccination();
             setPercentageOfWhoGotAtleastOneDosebar();
 
+            
             userBindingSource.DataSource = Data.users;
 
 
@@ -103,7 +103,22 @@ namespace vaccine_tracking_system
             yourInfoBtn.TextImageRelation = TextImageRelation.TextAboveImage;
             aboutUserBtn.TextImageRelation = TextImageRelation.TextAboveImage;
         }
+        // @mina load user info
 
+        void loadUserInfo()
+        {
+            double s;
+
+            //numberOfDaysLeft.Text = (currentUser.nextDate - DateTime.Today).TotalDays.ToString();
+            TimeSpan f = Data.currentUser.nextDate - DateTime.Today;
+            Console.WriteLine(f.TotalDays);
+
+
+        }
+
+        // UI navigation buttons
+
+        //admin
         private void statisticsBtn_Click(object sender, EventArgs e)
         {
             statisticsPanel.BringToFront();
@@ -145,6 +160,9 @@ namespace vaccine_tracking_system
             recordsBtn.ForeColor = Color.White;
             recordsBtn.TextImageRelation = TextImageRelation.TextAboveImage;
         }
+
+        //user
+
         private void statusBtn_Click(object sender, EventArgs e)
         {
             statusPanel.BringToFront();
@@ -186,6 +204,9 @@ namespace vaccine_tracking_system
             yourInfoBtn.ForeColor = Color.White;
             yourInfoBtn.TextImageRelation = TextImageRelation.TextAboveImage;
         }
+
+        //login & out
+
         private void logout_Click(object sender, EventArgs e)
         {
             mainPanel.BringToFront();
@@ -219,16 +240,14 @@ namespace vaccine_tracking_system
         }
 
 
-
-        private void deleteAllUsersButton_Click(object sender, EventArgs e)
+        private void deleteUserBtn_Click(object sender, EventArgs e)
         {
 
             if (MessageBox.Show("Are you sure you want to all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                userBindingSource.Clear();
+                userBindingSource.RemoveCurrent();
             }
-
         }
 
         private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
