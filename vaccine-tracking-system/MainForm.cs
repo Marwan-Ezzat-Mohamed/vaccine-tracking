@@ -223,7 +223,7 @@ namespace vaccine_tracking_system
         private void deleteAllUsersButton_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Are you sure you want to all users ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 userBindingSource.Clear();
