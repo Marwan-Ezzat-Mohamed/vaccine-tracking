@@ -12,10 +12,24 @@ namespace vaccine_tracking_system
 {
     public partial class MainForm : Form
     {
-        //const string REDSTATUSCOLOR;
-        //const string GREENSTATUSCOLOR;
+        Color REDSTATUSCOLOR = Color.Green;
+        Color GREENSTATUSCOLOR = Color.Red;
 
         User currentUser;
+
+
+        void setUserDataInUI()
+        {
+            User user = Data.currentUser;
+            label15.Text = $"Hello, {user.name}";
+            firstDoseStatusLabel.Text = user.firstDose ? "Taken": "Not taken";
+            firstDoseStatusLabel.ForeColor = user.firstDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
+
+            secondDoseStatusLabel.Text = user.secondDose ? "Taken" : "Not taken";
+            secondDoseStatusLabel.ForeColor = user.secondDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
+
+        }
+
         void setPercentageOfWhoAppliedForVaccination()
         {
             double numberOfWhoAppliedForVaccination = 0;
@@ -107,11 +121,7 @@ namespace vaccine_tracking_system
 
         void loadUserInfo()
         {
-            double s;
-
-            //numberOfDaysLeft.Text = (currentUser.nextDate - DateTime.Today).TotalDays.ToString();
-            TimeSpan f = Data.currentUser.nextDate - DateTime.Today;
-            Console.WriteLine(f.TotalDays);
+            
 
 
         }
@@ -226,6 +236,7 @@ namespace vaccine_tracking_system
                 if (natID_login.Text!=""&& pass_login.Text!=""&& Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
                 {
                     Data.currentUser = user;
+                    setUserDataInUI();
                     userPanel.BringToFront();
                     label15.Text = $"Hello, {user.name}";
                     founduser = true;
@@ -306,17 +317,7 @@ namespace vaccine_tracking_system
             radio_2d.Enabled = true;
         }
 
-        private void deleteUser_btn_Click(object sender, EventArgs e)
-        {
-
-            if (Data.currentUser.password.Equals(deleteUser_txt.Text))
-            {
-
-                User.deleteUser(Data.currentUser.nationalID);
-            }
-            else
-                MessageBox.Show("invalid password.");
-        }
+        
 
         private void delete_panel_Paint(object sender, PaintEventArgs e)
         {
@@ -343,20 +344,10 @@ namespace vaccine_tracking_system
             panel2.BringToFront();
         }
 
-        private void deleteUser_btn_Click_1(object sender, EventArgs e)
-        {
+       
 
-        }
+        
 
-        private void deleteID_txt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userLogin_btn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
@@ -364,10 +355,31 @@ namespace vaccine_tracking_system
             {
                 Data.currentUser.password = newpass_txt.Text;
                 Data.currentUser.governorate = newGov_txt.Text;
-                //el data el edited kda saved fel current user bs e7na msh 3arfeen n7otaha emta tany fel list 
+                MessageBox.Show("User edited.");
+
             }
             else
+            {
+
                 MessageBox.Show("old password doesn't match.");
+            }
+        }
+
+       
+
+        private void deleteUser_btn_Click(object sender, EventArgs e)
+        {
+            if (Data.currentUser.password.Equals(deleteUser_txt.Text))
+            {
+
+                User.deleteUser(Data.currentUser.nationalID);
+                MessageBox.Show("User deleted.");
+                mainPanel.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("invalid password.");
+            };
         }
     }
 }
