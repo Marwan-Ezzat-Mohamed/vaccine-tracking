@@ -675,6 +675,7 @@ namespace vaccine_tracking_system
             this.deleteAllUsersButton.TabIndex = 2;
             this.deleteAllUsersButton.Text = "delete all";
             this.deleteAllUsersButton.UseVisualStyleBackColor = true;
+            this.deleteAllUsersButton.Click += new System.EventHandler(this.deleteAllUsersButton_Click);
             // 
             // usersGridViewForAdmin
             // 
@@ -1403,9 +1404,9 @@ namespace vaccine_tracking_system
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 482);
-            this.Controls.Add(this.userPanel);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.adminPanel);
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.userPanel);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);

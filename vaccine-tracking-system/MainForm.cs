@@ -12,19 +12,37 @@ namespace vaccine_tracking_system
 {
     public partial class MainForm : Form
     {
-        Color REDSTATUSCOLOR = Color.Green;
-        Color GREENSTATUSCOLOR = Color.Red;
+        Color REDSTATUSCOLOR = Color.Red;
+        Color GREENSTATUSCOLOR = Color.Green;
 
         User currentUser;
 
+        private void setAdminDataInUI()
+        {
+            //updates the statisctics
+            setPercentageOfWhoGotFullyVaccinated();
+            setPercentageOfUnvaccinated();
+            setPercentageOfWhoAppliedForVaccination();
+            setPercentageOfWhoGotAtleastOneDosebar();
 
-        void setUserDataInUI()
+            //update the hello label
+            label3.Text = "Hello, Admin";
+            
+            //updates the table for admin every time they login
+            usersGridViewForAdmin.DataSource = Data.users;
+           
+           
+        }
+
+        private void setUserDataInUI()
         {
             User user = Data.currentUser;
+            //update the hello label
             label15.Text = $"Hello, {user.name}";
+
+            //updates the status page 
             firstDoseStatusLabel.Text = user.firstDose ? "Taken": "Not taken";
             firstDoseStatusLabel.ForeColor = user.firstDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
-
             secondDoseStatusLabel.Text = user.secondDose ? "Taken" : "Not taken";
             secondDoseStatusLabel.ForeColor = user.secondDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
 
@@ -98,10 +116,7 @@ namespace vaccine_tracking_system
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            setPercentageOfWhoGotFullyVaccinated();
-            setPercentageOfUnvaccinated();
-            setPercentageOfWhoAppliedForVaccination();
-            setPercentageOfWhoGotAtleastOneDosebar();
+            
 
             
             userBindingSource.DataSource = Data.users;
@@ -229,11 +244,23 @@ namespace vaccine_tracking_system
 
         private void loginBtn1_Click(object sender, EventArgs e)
         {
+            if(pass_login.Text==Data.adminPassword)
+            {
+                setAdminDataInUI();
+                adminPanel.BringToFront();
+                return;
+            }
+            if (natID_login.Text == "" || pass_login.Text == "")
+            {
+                MessageBox.Show("please fill all the fields.");
+                return;
+
+            }
            
             bool founduser = false;
             foreach (User user in Data.users)
             {
-                if (natID_login.Text!=""&& pass_login.Text!=""&& Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
+                if ( Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
                 {
                     Data.currentUser = user;
                     setUserDataInUI();
@@ -250,16 +277,9 @@ namespace vaccine_tracking_system
 
         }
 
+       
 
-        private void deleteUserBtn_Click(object sender, EventArgs e)
-        {
-
-            if (MessageBox.Show("Are you sure you want to all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                userBindingSource.RemoveCurrent();
-            }
-        }
+        
 
         private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -380,6 +400,15 @@ namespace vaccine_tracking_system
             {
                 MessageBox.Show("invalid password.");
             };
+        }
+
+        private void deleteAllUsersButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                userBindingSource.Clear();
+                User.deleteAllUsers();
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ namespace vaccine_tracking_system
     {
 
         public static List<Admin> admins = new List<Admin>();
+        public static string adminPassword = "admin";
+
         public static Admin currentAdmin;
         public static List<User> users = new List<User>();
         public static User currentUser;
