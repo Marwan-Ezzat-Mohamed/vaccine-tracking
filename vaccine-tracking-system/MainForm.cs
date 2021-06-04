@@ -27,11 +27,11 @@ namespace vaccine_tracking_system
 
             //update the hello label
             label3.Text = "Hello, Admin";
-            
+
             //updates the table for admin every time they login
             usersGridViewForAdmin.DataSource = Data.users;
-           
-           
+
+
         }
 
         private void setUserDataInUI()
@@ -41,7 +41,7 @@ namespace vaccine_tracking_system
             label15.Text = $"Hello, {user.name}";
 
             //updates the status page 
-            firstDoseStatusLabel.Text = user.firstDose ? "Taken": "Not taken";
+            firstDoseStatusLabel.Text = user.firstDose ? "Taken" : "Not taken";
             firstDoseStatusLabel.ForeColor = user.firstDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
             secondDoseStatusLabel.Text = user.secondDose ? "Taken" : "Not taken";
             secondDoseStatusLabel.ForeColor = user.secondDose ? GREENSTATUSCOLOR : REDSTATUSCOLOR;
@@ -108,7 +108,7 @@ namespace vaccine_tracking_system
         }
 
 
-       
+
         public MainForm()
         {
             InitializeComponent();
@@ -116,9 +116,9 @@ namespace vaccine_tracking_system
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
 
-            
+
+
             userBindingSource.DataSource = Data.users;
 
 
@@ -134,12 +134,7 @@ namespace vaccine_tracking_system
         }
         // @mina load user info
 
-        void loadUserInfo()
-        {
-            
 
-
-        }
 
         // UI navigation buttons
 
@@ -244,7 +239,7 @@ namespace vaccine_tracking_system
 
         private void loginBtn1_Click(object sender, EventArgs e)
         {
-            if(pass_login.Text==Data.adminPassword)
+            if (pass_login.Text == Data.adminPassword)
             {
                 setAdminDataInUI();
                 adminPanel.BringToFront();
@@ -256,18 +251,18 @@ namespace vaccine_tracking_system
                 return;
 
             }
-           
+
             bool founduser = false;
             foreach (User user in Data.users)
             {
-                if ( Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
+                if (Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
                 {
                     Data.currentUser = user;
                     setUserDataInUI();
                     userPanel.BringToFront();
                     label15.Text = $"Hello, {user.name}";
                     founduser = true;
-                    //w b3deen yroo7 3l panel elly ba3daha ayan kanet ba2a
+
                 }
             }
             if (!founduser)
@@ -277,9 +272,9 @@ namespace vaccine_tracking_system
 
         }
 
-       
 
-        
+
+
 
         private void usersGridViewForAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -301,43 +296,30 @@ namespace vaccine_tracking_system
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool isVaccinated = true;
+            if (radio_0d.Checked) isVaccinated = false;
+            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
 
-            bool v = false;
-            if (radio_v.Checked)
-            {
-                v = true;
-            }
-            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), v);
-            if (v)
-            {
-                if (radio_1d.Checked)
-                {
-                    newUser.vaccination(1);
-                }
-                else if (radio_2d.Checked)
-                {
-                    newUser.vaccination(2);
-                }
-            }
-            else
+            if (radio_0d.Checked)
             {
                 newUser.vaccination(0);
+            }
+            else if (radio_1d.Checked)
+            {
+                newUser.vaccination(1);
+            }
+            else if (radio_2d.Checked)
+            {
+                newUser.vaccination(2);
             }
             Data.users.Add(newUser);
         }
 
-        private void radio_v_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void radio_v_CheckedChanged_1(object sender, EventArgs e)
-        {
-            radio_1d.Enabled = true;
-            radio_2d.Enabled = true;
-        }
 
-        
+
+
 
         private void delete_panel_Paint(object sender, PaintEventArgs e)
         {
@@ -364,9 +346,9 @@ namespace vaccine_tracking_system
             panel2.BringToFront();
         }
 
-       
 
-        
+
+
 
 
         private void edit_btn_Click(object sender, EventArgs e)
@@ -385,7 +367,7 @@ namespace vaccine_tracking_system
             }
         }
 
-       
+
 
         private void deleteUser_btn_Click(object sender, EventArgs e)
         {
@@ -409,6 +391,29 @@ namespace vaccine_tracking_system
                 userBindingSource.Clear();
                 User.deleteAllUsers();
             }
+        }
+
+
+
+        private void radio_1d_Click(object sender, EventArgs e)
+        {
+            radio_1d.Checked = true;
+            radio_0d.Checked = false;
+            radio_2d.Checked = false;
+        }
+
+        private void radio_0d_Click(object sender, EventArgs e)
+        {
+            radio_0d.Checked = true;
+            radio_1d.Checked = false;
+            radio_2d.Checked = false;
+        }
+
+        private void radio_2d_Click(object sender, EventArgs e)
+        {
+            radio_2d.Checked = true;
+            radio_0d.Checked = false;
+            radio_1d.Checked = false;
         }
     }
 }
