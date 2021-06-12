@@ -36,11 +36,8 @@ namespace vaccine_tracking_system
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.signUpPanel = new System.Windows.Forms.Panel();
-            this.radio_0d = new System.Windows.Forms.RadioButton();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.radio_1d = new System.Windows.Forms.RadioButton();
-            this.radio_2d = new System.Windows.Forms.RadioButton();
             this.gov_txt = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.gender_txt = new System.Windows.Forms.TextBox();
@@ -120,6 +117,8 @@ namespace vaccine_tracking_system
             this.label32 = new System.Windows.Forms.Label();
             this.oldPass_txt = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.numberDosesComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -198,11 +197,10 @@ namespace vaccine_tracking_system
             // 
             // signUpPanel
             // 
-            this.signUpPanel.Controls.Add(this.radio_0d);
+            this.signUpPanel.Controls.Add(this.numberDosesComboBox);
+            this.signUpPanel.Controls.Add(this.dateTimePicker1);
             this.signUpPanel.Controls.Add(this.label28);
             this.signUpPanel.Controls.Add(this.label23);
-            this.signUpPanel.Controls.Add(this.radio_1d);
-            this.signUpPanel.Controls.Add(this.radio_2d);
             this.signUpPanel.Controls.Add(this.gov_txt);
             this.signUpPanel.Controls.Add(this.label24);
             this.signUpPanel.Controls.Add(this.gender_txt);
@@ -223,20 +221,6 @@ namespace vaccine_tracking_system
             this.signUpPanel.Name = "signUpPanel";
             this.signUpPanel.Size = new System.Drawing.Size(818, 482);
             this.signUpPanel.TabIndex = 0;
-            // 
-            // radio_0d
-            // 
-            this.radio_0d.AutoSize = true;
-            this.radio_0d.ForeColor = System.Drawing.Color.White;
-            this.radio_0d.Location = new System.Drawing.Point(205, 360);
-            this.radio_0d.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_0d.Name = "radio_0d";
-            this.radio_0d.Size = new System.Drawing.Size(78, 17);
-            this.radio_0d.TabIndex = 31;
-            this.radio_0d.TabStop = true;
-            this.radio_0d.Text = "Zero doses";
-            this.radio_0d.UseVisualStyleBackColor = true;
-            this.radio_0d.Click += new System.EventHandler(this.radio_0d_Click);
             // 
             // label28
             // 
@@ -260,34 +244,6 @@ namespace vaccine_tracking_system
             this.label23.Size = new System.Drawing.Size(127, 25);
             this.label23.TabIndex = 25;
             this.label23.Text = "No. Of Doses";
-            // 
-            // radio_1d
-            // 
-            this.radio_1d.AutoSize = true;
-            this.radio_1d.ForeColor = System.Drawing.Color.White;
-            this.radio_1d.Location = new System.Drawing.Point(309, 360);
-            this.radio_1d.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_1d.Name = "radio_1d";
-            this.radio_1d.Size = new System.Drawing.Size(69, 17);
-            this.radio_1d.TabIndex = 26;
-            this.radio_1d.TabStop = true;
-            this.radio_1d.Text = "one dose";
-            this.radio_1d.UseVisualStyleBackColor = true;
-            this.radio_1d.Click += new System.EventHandler(this.radio_1d_Click);
-            // 
-            // radio_2d
-            // 
-            this.radio_2d.AutoSize = true;
-            this.radio_2d.ForeColor = System.Drawing.Color.White;
-            this.radio_2d.Location = new System.Drawing.Point(406, 360);
-            this.radio_2d.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_2d.Name = "radio_2d";
-            this.radio_2d.Size = new System.Drawing.Size(73, 17);
-            this.radio_2d.TabIndex = 24;
-            this.radio_2d.TabStop = true;
-            this.radio_2d.Text = "two doses";
-            this.radio_2d.UseVisualStyleBackColor = true;
-            this.radio_2d.Click += new System.EventHandler(this.radio_2d_Click);
             // 
             // gov_txt
             // 
@@ -1121,10 +1077,11 @@ namespace vaccine_tracking_system
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(49, 104);
+            this.progressBar1.Maximum = 30;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(483, 10);
             this.progressBar1.TabIndex = 1;
-            this.progressBar1.Value = 85;
+            this.progressBar1.Value = 30;
             // 
             // label11
             // 
@@ -1288,6 +1245,22 @@ namespace vaccine_tracking_system
             this.label31.TabIndex = 24;
             this.label31.Text = "enter old password";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(484, 360);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 32;
+            // 
+            // numberDosesComboBox
+            // 
+            this.numberDosesComboBox.FormattingEnabled = true;
+            this.numberDosesComboBox.Location = new System.Drawing.Point(237, 356);
+            this.numberDosesComboBox.Name = "numberDosesComboBox";
+            this.numberDosesComboBox.Size = new System.Drawing.Size(135, 21);
+            this.numberDosesComboBox.TabIndex = 34;
+            this.numberDosesComboBox.SelectedIndexChanged += new System.EventHandler(this.numberDosesComboBox_SelectedIndexChanged);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
@@ -1377,8 +1350,8 @@ namespace vaccine_tracking_system
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 482);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.userPanel);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.adminPanel);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -1492,8 +1465,6 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.TextBox gender_txt;
         private System.Windows.Forms.TextBox gov_txt;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.RadioButton radio_1d;
-        private System.Windows.Forms.RadioButton radio_2d;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1522,7 +1493,8 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox oldPass_txt;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.RadioButton radio_0d;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox numberDosesComboBox;
     }
 }
 

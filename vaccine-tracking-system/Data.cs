@@ -14,21 +14,20 @@ namespace vaccine_tracking_system
 
         public static Admin currentAdmin;
         public static List<User> users = new List<User>();
+        
+        public static Dictionary<long,User> allUsers = new Dictionary<long, User>();
         public static User currentUser;
         public static void setIntialData()
         {
             users = new List<User>(){
-                new User("marwan", "1234", 123123,  "cairo", 'M', 19, true),
+                new User("marwan", "1", 1,  "cairo", 'M', 19, true),
                 new User("joe", "1234", 123,  "giza", 'M', 19, false),
                 new User("mina", "1234", 123123123, "giza", 'M', 19, false),
                 new User("khadiga", "1234", 123123123123,  "giza", 'f', 19, true),
                 new User("noran", "1234", 1231123123,  "giza", 'f', 19, true)
             };
-
-            admins = new List<Admin>(){
-                new Admin("1234", 1234)
-                
-            };
+            users[0].firstDose = true;
+            users[0].nextDoseDate = DateTime.Now.AddDays(10);
 
         }
     }

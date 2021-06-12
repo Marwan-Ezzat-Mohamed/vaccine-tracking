@@ -25,6 +25,7 @@ namespace vaccine_tracking_system
             setPercentageOfWhoAppliedForVaccination();
             setPercentageOfWhoGotAtleastOneDosebar();
 
+
             //update the hello label
             label3.Text = "Hello, Admin";
 
@@ -37,6 +38,7 @@ namespace vaccine_tracking_system
         private void setUserDataInUI()
         {
             User user = Data.currentUser;
+            setDaysLeft(user);
             //update the hello label
             label15.Text = $"Hello, {user.name}";
 
@@ -117,6 +119,11 @@ namespace vaccine_tracking_system
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+
+
+            numberDosesComboBox.Items.Add("Zero Doses");
+            numberDosesComboBox.Items.Add("One Dose");
+            numberDosesComboBox.Items.Add("Two Doses");
 
 
             userBindingSource.DataSource = Data.users;
@@ -297,24 +304,32 @@ namespace vaccine_tracking_system
         private void button1_Click(object sender, EventArgs e)
         {
             bool isVaccinated = true;
-            if (radio_0d.Checked) isVaccinated = false;
+            if (numberDosesComboBox.SelectedIndex == 0) isVaccinated = false;
             User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
 
-            if (radio_0d.Checked)
+            if (numberDosesComboBox.SelectedIndex == 0)
             {
-                newUser.vaccination(0);
+                newUser.vaccination(0, dateTimePicker1.Value);
             }
-            else if (radio_1d.Checked)
+            else if (numberDosesComboBox.SelectedIndex == 1)
             {
-                newUser.vaccination(1);
+                newUser.vaccination(1, dateTimePicker1.Value.AddDays(30));
             }
-            else if (radio_2d.Checked)
+            else if (numberDosesComboBox.SelectedIndex == 2)
             {
-                newUser.vaccination(2);
+                newUser.vaccination(2, null);
             }
+            setDaysLeft(newUser);
             Data.users.Add(newUser);
         }
 
+        private void setDaysLeft(User user)
+        {
+            int daysLeft = Math.Max(1, (user.nextDoseDate.Value - DateTime.Now).Days);
+            Console.WriteLine(user.nextDoseDate.Value);
+            numberOfDaysLeft.Text = Math.Max(1, daysLeft).ToString();
+            progressBar1.Value = 30 - daysLeft;
+        }
 
 
 
@@ -395,25 +410,29 @@ namespace vaccine_tracking_system
 
 
 
-        private void radio_1d_Click(object sender, EventArgs e)
-        {
-            radio_1d.Checked = true;
-            radio_0d.Checked = false;
-            radio_2d.Checked = false;
-        }
 
-        private void radio_0d_Click(object sender, EventArgs e)
-        {
-            radio_0d.Checked = true;
-            radio_1d.Checked = false;
-            radio_2d.Checked = false;
-        }
 
-        private void radio_2d_Click(object sender, EventArgs e)
+        private void numberDosesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            radio_2d.Checked = true;
-            radio_0d.Checked = false;
-            radio_1d.Checked = false;
+            //dateTimePicker1 = new DateTimePicker();
+            if (numberDosesComboBox.SelectedIndex == 2)
+            {
+
+                dateTimePicker1.Enabled = false;
+            }
+            else if (numberDosesComboBox.SelectedIndex == 0)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker1.MaxDate = DateTime.Now.AddDays(30);
+                dateTimePicker1.MinDate = DateTime.Now;
+            }
+            else if (numberDosesComboBox.SelectedIndex == 1)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker1.MinDate = DateTime.Now.AddDays(-30);
+                dateTimePicker1.MaxDate = DateTime.Now;
+                Console.WriteLine(DateTime.Now);
+            }
         }
     }
 }
