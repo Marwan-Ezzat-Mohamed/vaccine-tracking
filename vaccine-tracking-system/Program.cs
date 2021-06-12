@@ -15,7 +15,7 @@ namespace vaccine_tracking_system
         static void Main()
         {
             Data.setIntialData();
-            Console.WriteLine(Data.users[0].name);
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

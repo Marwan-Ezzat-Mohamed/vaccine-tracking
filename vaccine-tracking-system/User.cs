@@ -20,7 +20,7 @@ namespace vaccine_tracking_system
         public bool firstDose { get; set; } = false;
         public bool secondDose { get; set; } = false;
         public bool waitingList { get; set; } = false;
-        
+
         public Nullable<DateTime> nextDoseDate { get; set; } = null;
 
 
@@ -61,23 +61,12 @@ namespace vaccine_tracking_system
 
         public static void deleteUser(long id)
         {
-            foreach (User x in Data.users)
-            {
-                if (x.nationalID == id)
-                {
-                    Data.users.Remove(x);
-                    break;
-                }
-
-            }
+            Data.users.Remove(id);
         }
 
         public static void deleteAllUsers()
         {
-            foreach (User x in Data.users)
-            {
-                Data.users.Remove(x);
-            }
+            Data.users.Clear();
         }
 
         //m7tageen ne3raf mn el user fel ui wa5ed kam dose 3shan ne3raf nsha8al elfunction

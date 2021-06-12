@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace vaccine_tracking_system
 {
@@ -8,12 +10,14 @@ namespace vaccine_tracking_system
     {
         Color REDSTATUSCOLOR = Color.Red;
         Color GREENSTATUSCOLOR = Color.Green;
-
+        const long EGYPTPOPULATION = 100;
         User currentUser;
+
 
         private void setAdminDataInUI()
         {
             //updates the statisctics
+
             setPercentageOfWhoGotFullyVaccinated();
             setPercentageOfUnvaccinated();
             setPercentageOfWhoAppliedForVaccination();
@@ -24,7 +28,7 @@ namespace vaccine_tracking_system
             label3.Text = "Hello, Admin";
 
             //updates the table for admin every time they login
-            usersGridViewForAdmin.DataSource = Data.users;
+            usersGridViewForAdmin.DataSource = Data.users.Select(kvp => kvp.Value).ToList();
 
 
         }
@@ -48,26 +52,17 @@ namespace vaccine_tracking_system
 
         void setPercentageOfWhoAppliedForVaccination()
         {
-            double numberOfWhoAppliedForVaccination = 0;
-            foreach (User user in Data.users)
-            {
-                if (user.waitingList || user.isVaccinated)
-                {
-                    numberOfWhoAppliedForVaccination++;
-                }
-            }
-
-            percentageOfWhoAppliedBar.Value = (int)((numberOfWhoAppliedForVaccination / (Data.users.Count)) * 100);
-
+           
+            percentageOfWhoAppliedBar.Value = (int)(((Data.users.Count * 100 )/ (EGYPTPOPULATION)) );
         }
 
         void setPercentageOfUnvaccinated()
         {
             double numberOfUnvaccinate = 0;
 
-            foreach (User user in Data.users)
+            foreach (KeyValuePair<long, User> entry in Data.users)
             {
-                if (!user.isVaccinated)
+                if (!entry.Value.secondDose)
                 {
                     numberOfUnvaccinate++;
                 }
@@ -79,9 +74,9 @@ namespace vaccine_tracking_system
         void setPercentageOfWhoGotAtleastOneDosebar()
         {
             double numberOfOneDose = 0;
-            foreach (User user in Data.users)
+            foreach (KeyValuePair<long, User> entry in Data.users)
             {
-                if (user.firstDose || user.secondDose || user.isVaccinated)
+                if (entry.Value.firstDose )
                 {
                     numberOfOneDose++;
                 }
@@ -93,15 +88,15 @@ namespace vaccine_tracking_system
 
         void setPercentageOfWhoGotFullyVaccinated()
         {
-            double numberOfOneDose = 0;
-            foreach (User user in Data.users)
+            double numberOfVaccinate = 0;
+            foreach (KeyValuePair<long, User> entry in Data.users)
             {
-                if (user.secondDose || user.isVaccinated)
+                if (entry.Value.secondDose)
                 {
-                    numberOfOneDose++;
+                    numberOfVaccinate++;
                 }
             }
-            percentageOfWhoGotFullyVaccinatedBar.Value = (int)((numberOfOneDose / Data.users.Count) * 100);
+            percentageOfWhoGotFullyVaccinatedBar.Value = (int)((numberOfVaccinate / Data.users.Count) * 100);
 
         }
 
@@ -122,7 +117,7 @@ namespace vaccine_tracking_system
             numberDosesComboBox.Items.Add("Two Doses");
 
 
-            userBindingSource.DataSource = Data.users;
+            userBindingSource.DataSource = Data.users.Select(kvp => kvp.Value).ToList();
 
 
             recordsBtn.ForeColor = Color.White;
@@ -255,20 +250,18 @@ namespace vaccine_tracking_system
 
             }
 
-            bool founduser = false;
-            foreach (User user in Data.users)
+            long inputId = Convert.ToInt64(natID_login.Text);
+            bool founduser = Data.users.ContainsKey(inputId);
+            string inputPassword = pass_login.Text;
+            User user = Data.users[inputId];
+            if (founduser && user.password == inputPassword)
             {
-                if (Convert.ToInt64(natID_login.Text) == user.nationalID && pass_login.Text.Equals(user.password))
-                {
-                    Data.currentUser = user;
-                    setUserDataInUI();
-                    userPanel.BringToFront();
-                    label15.Text = $"Hello, {user.name}";
-                    founduser = true;
-
-                }
+                Data.currentUser = user;
+                setUserDataInUI();
+                userPanel.BringToFront();
+                label15.Text = $"Hello, {user.name}";
             }
-            if (!founduser)
+            else
             {
                 MessageBox.Show("invalid national ID or password. try again.");
             }
@@ -304,35 +297,35 @@ namespace vaccine_tracking_system
             //input validation 
 
 
-            if (int.TryParse(name_txt.Text, out _))
-            {
-                MessageBox.Show("name must have no numbers in it");
-                return;
-            }
+            //if (int.TryParse(name_txt.Text, out _))
+            //{
+            //    MessageBox.Show("name must have no numbers in it");
+            //    return;
+            //}
 
-            if (int.TryParse(gov_txt.Text, out _))
-            {
-                MessageBox.Show("governorate must have no numbers in it");
-                return;
-            }
+            //if (int.TryParse(gov_txt.Text, out _))
+            //{
+            //    MessageBox.Show("governorate must have no numbers in it");
+            //    return;
+            //}
 
-            if (numberDosesComboBox.Text == "")
-            {
-                MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
-                return;
-            }
+            //if (numberDosesComboBox.Text == "")
+            //{
+            //    MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
+            //    return;
+            //}
 
-            if (ID_txt.TextLength != 13)
-            {
-                MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
-                return;
-            }
+            //if (ID_txt.TextLength != 13)
+            //{
+            //    MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
+            //    return;
+            //}
 
-            if (password_txt.TextLength < 8)
-            {
-                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
-                return;
-            }
+            //if (password_txt.TextLength < 8)
+            //{
+            //    MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+            //    return;
+            //}
 
 
 
@@ -383,7 +376,7 @@ namespace vaccine_tracking_system
             }
             setDaysLeft(newUser);
 
-            Data.users.Add(newUser);
+            Data.users.Add(newUser.nationalID, newUser);
 
         }
 
@@ -518,8 +511,8 @@ namespace vaccine_tracking_system
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            int curr = usersGridViewForAdmin.CurrentCell.RowIndex;
-            Console.WriteLine(curr);
+
+            int curr = int.Parse(usersGridViewForAdmin.SelectedRows[0].Cells[2].Value.ToString());
             Data.users[curr].nextDoseDate = dateTimePicker2.Value;
             Data.users[curr].waitingList = false;
             usersGridViewForAdmin.Update();
