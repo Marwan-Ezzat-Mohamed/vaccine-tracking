@@ -390,18 +390,24 @@ namespace vaccine_tracking_system
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
-            if (Data.currentUser.password.Equals(oldPass_txt.Text))
+            if (newpass_txt.TextLength >= 8)
             {
-                Data.currentUser.password = newpass_txt.Text;
-                Data.currentUser.governorate = newGov_txt.Text;
-                MessageBox.Show("User edited.");
+                if (Data.currentUser.password.Equals(oldPass_txt.Text))
+                {
+                    Data.currentUser.password = newpass_txt.Text;
+                    Data.currentUser.governorate = newGov_txt.Text;
+                    MessageBox.Show("User edited.");
 
+                }
+                else
+                {
+
+                    MessageBox.Show("old password doesn't match.");
+                }
             }
+
             else
-            {
-
-                MessageBox.Show("old password doesn't match.");
-            }
+                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
         }
 
 

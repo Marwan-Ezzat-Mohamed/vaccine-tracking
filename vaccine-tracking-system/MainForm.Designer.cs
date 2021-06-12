@@ -192,6 +192,7 @@ namespace vaccine_tracking_system
             this.signUpPanel.Controls.Add(this.radio_0d);
             this.signUpPanel.Controls.Add(this.label28);
             this.signUpPanel.Controls.Add(this.label23);
+            this.signUpPanel.Controls.Add(this.yourInfoPanel);
             this.signUpPanel.Controls.Add(this.radio_1d);
             this.signUpPanel.Controls.Add(this.radio_2d);
             this.signUpPanel.Controls.Add(this.gov_txt);
@@ -886,7 +887,6 @@ namespace vaccine_tracking_system
             this.userPanel.Controls.Add(this.panel8);
             this.userPanel.Controls.Add(this.statusPanel);
             this.userPanel.Controls.Add(this.aboutUserPanel);
-            this.userPanel.Controls.Add(this.yourInfoPanel);
             this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userPanel.Location = new System.Drawing.Point(0, 0);
             this.userPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1147,7 +1147,7 @@ namespace vaccine_tracking_system
             this.yourInfoPanel.Controls.Add(this.label32);
             this.yourInfoPanel.Controls.Add(this.oldPass_txt);
             this.yourInfoPanel.Controls.Add(this.label31);
-            this.yourInfoPanel.Location = new System.Drawing.Point(237, 0);
+            this.yourInfoPanel.Location = new System.Drawing.Point(244, 0);
             this.yourInfoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.yourInfoPanel.Name = "yourInfoPanel";
             this.yourInfoPanel.Size = new System.Drawing.Size(853, 593);
