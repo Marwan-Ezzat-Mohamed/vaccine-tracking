@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace vaccine_tracking_system
@@ -50,7 +44,7 @@ namespace vaccine_tracking_system
 
         }
 
-        
+
 
         void setPercentageOfWhoAppliedForVaccination()
         {
@@ -244,10 +238,7 @@ namespace vaccine_tracking_system
             mainPanel.BringToFront();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void loginBtn1_Click(object sender, EventArgs e)
         {
@@ -311,11 +302,7 @@ namespace vaccine_tracking_system
         {
 
             //input validation 
-            if (!int.TryParse(age_txt.Text,out _))
-            {
-                MessageBox.Show("age must be a number");
-                return;
-            }
+
 
             if (int.TryParse(name_txt.Text, out _))
             {
@@ -347,27 +334,34 @@ namespace vaccine_tracking_system
                 return;
             }
 
-            if (!(gender_txt.Text.Equals("M") || gender_txt.Text.Equals("m") || gender_txt.Text.Equals("f") || gender_txt.Text.Equals("F")))
-            {
-                MessageBox.Show("please enter 'F'/'f' for female or 'M'/m' for male.", "INVALID INPUT!");
-                return;
-            }
-            
+
+
 
 
             bool isVaccinated = true;
-            User newUser= new User();
+            User newUser = new User();
             if (numberDosesComboBox.SelectedIndex == 0) isVaccinated = false;
             //checks for empty fields
             try
             {
-                DateTime bDate = new DateTime(2008, 3, 15);
+                Char gender = new char();
+                if (RBMale.Checked == true)
+                {
+                    gender = 'm';
+                }
+                else if (RBFemale.Checked == true)
+                {
+                    gender = 'f';
+                }
+
+
+                //DateTime bDate = new DateTime(2008, 3, 15);
                 newUser = new User(name_txt.Text, password_txt.Text,
-                 Convert.ToInt64(ID_txt.Text), gov_txt.Text,
-                 Convert.ToChar(gender_txt.Text), bDate, isVaccinated);
+                Convert.ToInt64(ID_txt.Text), gov_txt.Text,
+                gender, DOBPicker.Value, isVaccinated);
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("please fill all fields");
                 return;
@@ -376,6 +370,7 @@ namespace vaccine_tracking_system
             //set the number of doses for the user
             if (numberDosesComboBox.SelectedIndex == 0)
             {
+                newUser.waitingList = true;
                 newUser.vaccination(0, dateTimePicker1.Value);
             }
             else if (numberDosesComboBox.SelectedIndex == 1)
@@ -394,6 +389,15 @@ namespace vaccine_tracking_system
 
         private void setDaysLeft(User user)
         {
+            if (user.waitingList)
+            {
+                label11.Text = "";
+                numberOfDaysLeft.Text = "You are in the waiting list";
+                return;
+            }
+            string dose = !user.firstDose ? "first" : "second";
+            label11.Text = $"Days left untill the {dose } shot";
+
             int daysLeft = Math.Max(1, (user.nextDoseDate.Value - DateTime.Now).Days);
             Console.WriteLine(user.nextDoseDate.Value);
             ///-------------------still needs fixing---------------------//
@@ -408,20 +412,7 @@ namespace vaccine_tracking_system
 
 
 
-        private void delete_panel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void label27_Click(object sender, EventArgs e)
         {
@@ -479,10 +470,22 @@ namespace vaccine_tracking_system
 
         private void deleteAllUsersButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+
+            if (MessageBox.Show("Are you sure you want to delete selected user(s)?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                userBindingSource.Clear();
-                User.deleteAllUsers();
+                for (int i = 0; i < usersGridViewForAdmin.SelectedRows.Count; i++)
+                {
+
+                    int curr = usersGridViewForAdmin.SelectedRows[i].Index;
+
+                    long id = Data.users[curr].nationalID;
+
+                    User.deleteUser(id);
+
+                }
+                usersGridViewForAdmin.Update();
+                usersGridViewForAdmin.Refresh();
             }
         }
 
@@ -492,7 +495,7 @@ namespace vaccine_tracking_system
 
         private void numberDosesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (numberDosesComboBox.SelectedIndex == 2)
             {
 
@@ -516,9 +519,13 @@ namespace vaccine_tracking_system
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             int curr = usersGridViewForAdmin.CurrentCell.RowIndex;
+            Console.WriteLine(curr);
             Data.users[curr].nextDoseDate = dateTimePicker2.Value;
+            Data.users[curr].waitingList = false;
             usersGridViewForAdmin.Update();
             usersGridViewForAdmin.Refresh();
         }
+
+
     }
 }

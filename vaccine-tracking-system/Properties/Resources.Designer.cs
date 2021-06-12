@@ -113,6 +113,16 @@ namespace vaccine_tracking_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap redbutton {
+            get {
+                object obj = ResourceManager.GetObject("redbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap username {
             get {
                 object obj = ResourceManager.GetObject("username", resourceCulture);
