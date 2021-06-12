@@ -321,6 +321,51 @@ namespace vaccine_tracking_system
             }
             setDaysLeft(newUser);
             Data.users.Add(newUser);
+                if (radio_0d.Checked)
+                {
+                    newUser.vaccination(0);
+                }
+                else if (radio_1d.Checked)
+                {
+                    newUser.vaccination(1);
+                }
+                else if (radio_2d.Checked)
+                {
+                    newUser.vaccination(2);
+                }
+                Data.users.Add(newUser);
+
+                try
+                {
+                    if (ID_txt.TextLength != 13)
+                        MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
+
+                    if (password_txt.TextLength < 8)
+                        MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+
+                    if (!(gender_txt.Text.Equals("M") || gender_txt.Text.Equals("m") || gender_txt.Text.Equals("f") || gender_txt.Text.Equals("F")))
+                        MessageBox.Show("please enter 'F'/'f' for female or 'M'/m' for male.", "INVALID INPUT!");
+
+                    if (!radio_0d.Checked && !radio_1d.Checked && !radio_2d.Checked)
+                        MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
+
+                }
+                catch 
+                {
+
+                    
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("please fill all the required fields", "ERROR!");
+                
+            }
+
+
+      
+
+
         }
 
         private void setDaysLeft(User user)
@@ -368,18 +413,24 @@ namespace vaccine_tracking_system
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
-            if (Data.currentUser.password.Equals(oldPass_txt.Text))
+            if (newpass_txt.TextLength >= 8)
             {
-                Data.currentUser.password = newpass_txt.Text;
-                Data.currentUser.governorate = newGov_txt.Text;
-                MessageBox.Show("User edited.");
+                if (Data.currentUser.password.Equals(oldPass_txt.Text))
+                {
+                    Data.currentUser.password = newpass_txt.Text;
+                    Data.currentUser.governorate = newGov_txt.Text;
+                    MessageBox.Show("User edited.");
 
+                }
+                else
+                {
+
+                    MessageBox.Show("old password doesn't match.");
+                }
             }
+
             else
-            {
-
-                MessageBox.Show("old password doesn't match.");
-            }
+                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
         }
 
 
