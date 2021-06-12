@@ -303,10 +303,68 @@ namespace vaccine_tracking_system
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool isVaccinated = true;
-            if (numberDosesComboBox.SelectedIndex == 0) isVaccinated = false;
-            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
 
+            //input validation 
+            if (!int.TryParse(age_txt.Text,out _))
+            {
+                MessageBox.Show("age must be a number");
+                return;
+            }
+
+            if (int.TryParse(name_txt.Text, out _))
+            {
+                MessageBox.Show("name must have no numbers in it");
+                return;
+            }
+
+            if (int.TryParse(gov_txt.Text, out _))
+            {
+                MessageBox.Show("governorate must have no numbers in it");
+                return;
+            }
+
+            if (numberDosesComboBox.Text == "")
+            {
+                MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
+                return;
+            }
+
+            if (ID_txt.TextLength != 13)
+            {
+                MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
+                return;
+            }
+
+            if (password_txt.TextLength < 8)
+            {
+                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+                return;
+            }
+
+            if (!(gender_txt.Text.Equals("M") || gender_txt.Text.Equals("m") || gender_txt.Text.Equals("f") || gender_txt.Text.Equals("F")))
+            {
+                MessageBox.Show("please enter 'F'/'f' for female or 'M'/m' for male.", "INVALID INPUT!");
+                return;
+            }
+            
+
+
+            bool isVaccinated = true;
+            User newUser= new User();
+            if (numberDosesComboBox.SelectedIndex == 0) isVaccinated = false;
+            //checks for empty fields
+            try
+            {
+             newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
+
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("please fill all fields");
+                return;
+            }
+
+            //set the number of doses for the user
             if (numberDosesComboBox.SelectedIndex == 0)
             {
                 newUser.vaccination(0, dateTimePicker1.Value);
@@ -320,51 +378,8 @@ namespace vaccine_tracking_system
                 newUser.vaccination(2, null);
             }
             setDaysLeft(newUser);
+
             Data.users.Add(newUser);
-                if (radio_0d.Checked)
-                {
-                    newUser.vaccination(0);
-                }
-                else if (radio_1d.Checked)
-                {
-                    newUser.vaccination(1);
-                }
-                else if (radio_2d.Checked)
-                {
-                    newUser.vaccination(2);
-                }
-                Data.users.Add(newUser);
-
-                try
-                {
-                    if (ID_txt.TextLength != 13)
-                        MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
-
-                    if (password_txt.TextLength < 8)
-                        MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
-
-                    if (!(gender_txt.Text.Equals("M") || gender_txt.Text.Equals("m") || gender_txt.Text.Equals("f") || gender_txt.Text.Equals("F")))
-                        MessageBox.Show("please enter 'F'/'f' for female or 'M'/m' for male.", "INVALID INPUT!");
-
-                    if (!radio_0d.Checked && !radio_1d.Checked && !radio_2d.Checked)
-                        MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
-
-                }
-                catch 
-                {
-
-                    
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("please fill all the required fields", "ERROR!");
-                
-            }
-
-
-      
-
 
         }
 
