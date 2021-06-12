@@ -19,16 +19,17 @@ namespace vaccine_tracking_system
         public static User currentUser;
         public static void setIntialData()
         {
+            DateTime bDate = new DateTime(2008, 3, 15);
             users = new List<User>(){
-                new User("marwan", "1", 1,  "cairo", 'M', 19, true),
-                new User("joe", "1234", 123,  "giza", 'M', 19, false),
-                new User("mina", "1234", 123123123, "giza", 'M', 19, false),
-                new User("khadiga", "1234", 123123123123,  "giza", 'f', 19, true),
-                new User("noran", "1234", 1231123123,  "giza", 'f', 19, true)
+                new User("marwan", "1", 1,  "cairo", 'M',bDate , true),
+                new User("joe", "1234", 123,  "giza", 'M', bDate, true),
+                new User("mina", "1234", 123123123, "giza", 'M',    bDate, false),
+                new User("khadiga", "1234", 123123123123,  "giza", 'f', bDate, true),
+                new User("noran", "1234", 1231123123,  "giza", 'f', bDate, true)
             };
             users[0].firstDose = true;
-            users[0].nextDoseDate = DateTime.Now.AddDays(10);
-
+            users[0].nextDoseDate = DateTime.Now.AddDays(30);
+            users[1].firstDose = true;
         }
     }
 }

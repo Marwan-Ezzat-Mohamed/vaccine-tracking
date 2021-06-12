@@ -13,23 +13,29 @@ namespace vaccine_tracking_system
         public string governorate { get; set; } = "";
         public long nationalID { get; set; } = 0;
         public char gender { get; set; } = 'N';
+
+        public Nullable<DateTime> dateOfBirth { get; set; } = null;
         public int age { get; set; } = 0;
         public bool isVaccinated { get; set; } = false;
         public bool firstDose { get; set; } = false;
         public bool secondDose { get; set; } = false;
         public bool waitingList { get; set; } = false;
+        
         public Nullable<DateTime> nextDoseDate { get; set; } = null;
 
 
-        public User(string n, string pass, long id, string gov, char gen, int a, bool isVac)
+        public User(string n, string pass, long id, string gov, char gen, DateTime dob, bool isVac)
         {
             name = n;
             password = pass;
             nationalID = id;
             governorate = gov;
             gender = gen;
-            age = a;
+
+
+            age = int.Parse((DateTime.Now - dob).Days.ToString()) / 365;
             isVaccinated = isVac;
+
 
         }
 

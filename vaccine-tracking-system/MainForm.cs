@@ -50,6 +50,8 @@ namespace vaccine_tracking_system
 
         }
 
+        
+
         void setPercentageOfWhoAppliedForVaccination()
         {
             double numberOfWhoAppliedForVaccination = 0;
@@ -162,6 +164,9 @@ namespace vaccine_tracking_system
 
         private void recordsBtn_Click(object sender, EventArgs e)
         {
+
+
+
             recordsPanel.BringToFront();
 
             recordsBtn.ForeColor = Color.FromArgb(10, 14, 79);
@@ -288,7 +293,8 @@ namespace vaccine_tracking_system
             if (usersGridViewForAdmin.Columns[e.ColumnIndex].Name == "Delete")
             {
                 string username = usersGridViewForAdmin.Rows[e.RowIndex].Cells[0].Value.ToString();
-                if (MessageBox.Show($"Are you sure you want to delete user: {username} ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Are you sure you want to delete user: {username} ?", "Message",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     userBindingSource.RemoveCurrent();
@@ -355,7 +361,10 @@ namespace vaccine_tracking_system
             //checks for empty fields
             try
             {
-             newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
+                DateTime bDate = new DateTime(2008, 3, 15);
+                newUser = new User(name_txt.Text, password_txt.Text,
+                 Convert.ToInt64(ID_txt.Text), gov_txt.Text,
+                 Convert.ToChar(gender_txt.Text), bDate, isVaccinated);
 
             }
             catch(Exception)
@@ -387,8 +396,11 @@ namespace vaccine_tracking_system
         {
             int daysLeft = Math.Max(1, (user.nextDoseDate.Value - DateTime.Now).Days);
             Console.WriteLine(user.nextDoseDate.Value);
+            ///-------------------still needs fixing---------------------//
+            ///progressBar1.Maximum=
             numberOfDaysLeft.Text = Math.Max(1, daysLeft).ToString();
-            progressBar1.Value = 30 - daysLeft;
+            progressBar1.Value = Math.Abs(30 - daysLeft);
+
         }
 
 
@@ -499,6 +511,14 @@ namespace vaccine_tracking_system
                 dateTimePicker1.MaxDate = DateTime.Now;
                 Console.WriteLine(DateTime.Now);
             }
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            int curr = usersGridViewForAdmin.CurrentCell.RowIndex;
+            Data.users[curr].nextDoseDate = dateTimePicker2.Value;
+            usersGridViewForAdmin.Update();
+            usersGridViewForAdmin.Refresh();
         }
     }
 }
