@@ -298,21 +298,58 @@ namespace vaccine_tracking_system
         {
             bool isVaccinated = true;
             if (radio_0d.Checked) isVaccinated = false;
-            User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
+            
 
-            if (radio_0d.Checked)
+            try
             {
-                newUser.vaccination(0);
+
+                User newUser = new User(name_txt.Text, password_txt.Text, Convert.ToInt64(ID_txt.Text), gov_txt.Text, Convert.ToChar(gender_txt.Text), Convert.ToInt32(age_txt.Text), isVaccinated);
+
+                if (radio_0d.Checked)
+                {
+                    newUser.vaccination(0);
+                }
+                else if (radio_1d.Checked)
+                {
+                    newUser.vaccination(1);
+                }
+                else if (radio_2d.Checked)
+                {
+                    newUser.vaccination(2);
+                }
+                Data.users.Add(newUser);
+
+                try
+                {
+                    if (ID_txt.TextLength != 13)
+                        MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
+
+                    if (password_txt.TextLength < 8)
+                        MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+
+                    if (!(gender_txt.Text.Equals("M") || gender_txt.Text.Equals("m") || gender_txt.Text.Equals("f") || gender_txt.Text.Equals("F")))
+                        MessageBox.Show("please enter 'F'/'f' for female or 'M'/m' for male.", "INVALID INPUT!");
+
+                    if (!radio_0d.Checked && !radio_1d.Checked && !radio_2d.Checked)
+                        MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
+
+                }
+                catch 
+                {
+
+                    
+                }
             }
-            else if (radio_1d.Checked)
+            catch (Exception)
             {
-                newUser.vaccination(1);
+                MessageBox.Show("please fill all the required fields", "ERROR!");
+                
             }
-            else if (radio_2d.Checked)
-            {
-                newUser.vaccination(2);
-            }
-            Data.users.Add(newUser);
+
+
+      
+
+
         }
 
 
@@ -414,6 +451,11 @@ namespace vaccine_tracking_system
             radio_2d.Checked = true;
             radio_0d.Checked = false;
             radio_1d.Checked = false;
+        }
+
+        private void signUpPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
