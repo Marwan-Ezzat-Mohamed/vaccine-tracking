@@ -480,7 +480,7 @@ namespace vaccine_tracking_system
 
         private void numberDosesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //dateTimePicker1 = new DateTimePicker();
+            
             if (numberDosesComboBox.SelectedIndex == 2)
             {
 
@@ -488,7 +488,7 @@ namespace vaccine_tracking_system
             }
             else if (numberDosesComboBox.SelectedIndex == 0)
             {
-                dateTimePicker1.Enabled = true;
+                dateTimePicker1.Enabled = false;
                 dateTimePicker1.MaxDate = DateTime.Now.AddDays(30);
                 dateTimePicker1.MinDate = DateTime.Now;
             }
