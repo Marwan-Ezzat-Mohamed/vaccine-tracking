@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace vaccine_tracking_system
 {
@@ -28,7 +28,7 @@ namespace vaccine_tracking_system
             label3.Text = "Hello, Admin";
 
             //updates the table for admin every time they login
-            usersGridViewForAdmin.DataSource = Data.users.Select(kvp => kvp.Value).ToList();
+            usersGridViewForAdmin.DataSource = Data.users.Select(item => item.Value).ToList();
 
 
         }
@@ -52,8 +52,8 @@ namespace vaccine_tracking_system
 
         void setPercentageOfWhoAppliedForVaccination()
         {
-           
-            percentageOfWhoAppliedBar.Value = (int)(((Data.users.Count * 100 )/ (EGYPTPOPULATION)) );
+
+            percentageOfWhoAppliedBar.Value = (int)(((Data.users.Count * 100) / (EGYPTPOPULATION)));
         }
 
         void setPercentageOfUnvaccinated()
@@ -76,7 +76,7 @@ namespace vaccine_tracking_system
             double numberOfOneDose = 0;
             foreach (KeyValuePair<long, User> entry in Data.users)
             {
-                if (entry.Value.firstDose )
+                if (entry.Value.firstDose)
                 {
                     numberOfOneDose++;
                 }
@@ -470,13 +470,11 @@ namespace vaccine_tracking_system
                 for (int i = 0; i < usersGridViewForAdmin.SelectedRows.Count; i++)
                 {
 
-                    int curr = usersGridViewForAdmin.SelectedRows[i].Index;
-
-                    long id = Data.users[curr].nationalID;
-
+                    long id = long.Parse(usersGridViewForAdmin.SelectedRows[i].Cells[2].Value.ToString());
                     User.deleteUser(id);
 
                 }
+                usersGridViewForAdmin.DataSource = Data.users.Select(item => item.Value).ToList();
                 usersGridViewForAdmin.Update();
                 usersGridViewForAdmin.Refresh();
             }
@@ -512,13 +510,27 @@ namespace vaccine_tracking_system
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
-            int curr = int.Parse(usersGridViewForAdmin.SelectedRows[0].Cells[2].Value.ToString());
-            Data.users[curr].nextDoseDate = dateTimePicker2.Value;
-            Data.users[curr].waitingList = false;
+            //get the id from the selected row in the table from cell number 3
+            int id = int.Parse(usersGridViewForAdmin.SelectedRows[0].Cells[2].Value.ToString());
+
+            //set the user's next Dose date to the selected date by the admin
+            Data.users[id].nextDoseDate = dateTimePicker2.Value;
+            //remove user from waiting list
+            Data.users[id].waitingList = false;
+            //update the table with the new date;
             usersGridViewForAdmin.Update();
             usersGridViewForAdmin.Refresh();
         }
 
-
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Data.users.Clear();
+                usersGridViewForAdmin.DataSource =new List<User>();
+                usersGridViewForAdmin.Update();
+                usersGridViewForAdmin.Refresh();
+            }
+        }
     }
 }
