@@ -5,15 +5,8 @@ namespace vaccine_tracking_system
 {
     class Data
     {
-
-        public static List<Admin> admins = new List<Admin>();
         public static string adminPassword = "admin";
-
-        public static Admin currentAdmin;
-
-
-        public static SortedDictionary<long, User> users = new SortedDictionary<long, User>();
-
+        public static Dictionary<long, User> users = new Dictionary<long, User>();
         public static User currentUser;
         public static void setIntialData()
         {

@@ -17,8 +17,7 @@ namespace vaccine_tracking_system
         const int MINAGETOTAKEDOSE = 18;
         const int DAYSBEFORENEXTDOSE = 30;
 
-        bool mouseDown;
-        int mouseX = 0, mouseY = 0;
+        
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -148,11 +147,74 @@ namespace vaccine_tracking_system
             AppliedLbl.Text = ((int)(((Data.users.Count * 100) / (EGYPTPOPULATION)))).ToString() + "%";
         }
 
+        void setGovernoratesInCombobox()
+        {
+            comboBox1.Items.Add("Alexandria");
+            comboBox1.Items.Add("Assiut");
+            comboBox1.Items.Add("Aswan");
+            comboBox1.Items.Add("Beheira");
+            comboBox1.Items.Add("Bani Suef");
+            comboBox1.Items.Add("Cairo");
+            comboBox1.Items.Add("Daqahliya");
+            comboBox1.Items.Add("Damietta");
+            comboBox1.Items.Add("Fayyoum");
+            comboBox1.Items.Add("Gharbiya");
+            comboBox1.Items.Add("Giza");
+            comboBox1.Items.Add("Helwan");
+            comboBox1.Items.Add("Ismailia");
+            comboBox1.Items.Add("Kafr El Sheikh");
+            comboBox1.Items.Add("Luxor");
+            comboBox1.Items.Add("Marsa Matrouh");
+            comboBox1.Items.Add("Minya");
+            comboBox1.Items.Add("Monofiya");
+            comboBox1.Items.Add("New Valley");
+            comboBox1.Items.Add("North Sinai");
+            comboBox1.Items.Add("Port Said");
+            comboBox1.Items.Add("Qalioubiya");
+            comboBox1.Items.Add("Qena");
+            comboBox1.Items.Add("Red Sea");
+            comboBox1.Items.Add("Sharqiya");
+            comboBox1.Items.Add("Sohag");
+            comboBox1.Items.Add("South Sinai");
+            comboBox1.Items.Add("Suez");
+            comboBox1.Items.Add("Tanta");
+
+
+            comboBox2.Items.Add("Alexandria");
+            comboBox2.Items.Add("Assiut");
+            comboBox2.Items.Add("Aswan");
+            comboBox2.Items.Add("Beheira");
+            comboBox2.Items.Add("Bani Suef");
+            comboBox2.Items.Add("Cairo");
+            comboBox2.Items.Add("Daqahliya");
+            comboBox2.Items.Add("Damietta");
+            comboBox2.Items.Add("Fayyoum");
+            comboBox2.Items.Add("Gharbiya");
+            comboBox2.Items.Add("Giza");
+            comboBox2.Items.Add("Helwan");
+            comboBox2.Items.Add("Ismailia");
+            comboBox2.Items.Add("Kafr El Sheikh");
+            comboBox2.Items.Add("Luxor");
+            comboBox2.Items.Add("Marsa Matrouh");
+            comboBox2.Items.Add("Minya");
+            comboBox2.Items.Add("Monofiya");
+            comboBox2.Items.Add("New Valley");
+            comboBox2.Items.Add("North Sinai");
+            comboBox2.Items.Add("Port Said");
+            comboBox2.Items.Add("Qalioubiya");
+            comboBox2.Items.Add("Qena");
+            comboBox2.Items.Add("Red Sea");
+            comboBox2.Items.Add("Sharqiya");
+            comboBox2.Items.Add("Sohag");
+            comboBox2.Items.Add("South Sinai");
+            comboBox2.Items.Add("Suez");
+            comboBox2.Items.Add("Tanta");
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-
-
+            setGovernoratesInCombobox();
             numberDosesComboBox.Items.Add("Zero Doses");
             numberDosesComboBox.Items.Add("One Dose");
             numberDosesComboBox.Items.Add("Two Doses");
@@ -350,39 +412,46 @@ namespace vaccine_tracking_system
             //input validation 
 
 
-            //if (int.TryParse(name_txt.Text, out _))
-            //{
-            //    MessageBox.Show("name must have no numbers in it");
-            //    return;
-            //}
+            if (int.TryParse(name_txt.Text, out _))
+            {
+                MessageBox.Show("name must have no numbers in it");
+                return;
+            }
 
-            //if (int.TryParse(gov_txt.Text, out _))
-            //{
-            //    MessageBox.Show("governorate must have no numbers in it");
-            //    return;
-            //}
+            if (comboBox1.SelectedItem!=null&&int.TryParse(comboBox1.SelectedItem.ToString(), out _))
+            {
+                MessageBox.Show("governorate must have no numbers in it");
+                return;
+            }
 
-            //if (numberDosesComboBox.Text == "")
-            //{
-            //    MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
-            //    return;
-            //}
+            if (numberDosesComboBox.Text == "")
+            {
+                MessageBox.Show("Please choose a vaccination status.", "VACC ERROR!");
+                return;
+            }
 
-            //if (ID_txt.TextLength != 13)
-            //{
-            //    MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
-            //    return;
-            //}
+            if (ID_txt.TextLength != 1)
+            {
+                MessageBox.Show("National ID should be 13 numbers.", "ERROR!");
+                return;
+            }
 
-            //if (password_txt.TextLength < 8)
-            //{
-            //    MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
-            //    return;
-            //}
-
-
-
-
+            if (password_txt.TextLength < 1)
+            {
+                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+                return;
+            }
+            if (!RBMale.Checked&& !RBFemale.Checked)
+            {
+                MessageBox.Show("You must select a gender", "ERROR!");
+                return;
+            }
+            if (DOBPicker.Value.ToString()=="")
+            {
+                MessageBox.Show("You must select a date of birth", "ERROR!");
+                return;
+            }
+            
 
             User newUser = new User();
 
@@ -402,10 +471,10 @@ namespace vaccine_tracking_system
 
                 //DateTime bDate = new DateTime(2008, 3, 15);
                 newUser = new User(name_txt.Text, password_txt.Text,
-                Convert.ToInt64(ID_txt.Text), gov_txt.Text,
+                Convert.ToInt64(ID_txt.Text), comboBox1.SelectedItem.ToString(),
                 gender, DOBPicker.Value);
-                MessageBox.Show("Signed up successfully!");
-                return;
+               
+               
 
             }
             catch (Exception)
@@ -429,30 +498,35 @@ namespace vaccine_tracking_system
                 newUser.vaccination(2, null);
             }
             setDaysLeft(newUser);
-            bool isac = false;
+            bool isActivated;
             try
             {
-                isac = Data.users[newUser.nationalID].isActivated;
+                isActivated = Data.users[newUser.nationalID].isActivated;
             }
             catch
             {
-                // isac = true;
                 Data.users.Add(newUser.nationalID, newUser);
+                MessageBox.Show("Signed up successfully!");
                 return;
             }
 
-            if (!isac)
+            if (!isActivated)
             {
                 MessageBox.Show("Account reactivated successfully!");
-                Data.users[newUser.nationalID] = newUser;
+                
                 Data.users[newUser.nationalID].name = newUser.name;
                 Data.users[newUser.nationalID].governorate = newUser.governorate;
                 Data.users[newUser.nationalID].dateOfBirth = newUser.dateOfBirth;
                 Data.users[newUser.nationalID].gender = newUser.gender;
                 Data.users[newUser.nationalID].password = newUser.password;
-
+                Data.users[newUser.nationalID].isActivated = true;
                 panel2.BringToFront();
 
+            }
+            else
+            {
+                MessageBox.Show("Account already exists!");
+                return;
             }
 
         }
@@ -506,11 +580,6 @@ namespace vaccine_tracking_system
             panel2.BringToFront();
         }
 
-
-
-
-
-
         private void edit_btn_Click(object sender, EventArgs e)
         {
             if (newpass_txt.TextLength >= 8)
@@ -518,7 +587,7 @@ namespace vaccine_tracking_system
                 Data.currentUser.name = NameTB.Text;
                 Data.currentUser.password = newpass_txt.Text;
 
-                Data.currentUser.governorate = newGov_txt.Text;
+                Data.currentUser.governorate = comboBox2.SelectedItem.ToString();
 
 
                 if (MaleRB.Checked)
@@ -547,7 +616,7 @@ namespace vaccine_tracking_system
             NameTB.Text = Data.currentUser.name;
             newpass_txt.Text = Data.currentUser.password;
             nationalIDTB.Text = Data.currentUser.nationalID.ToString();
-            newGov_txt.Text = Data.currentUser.governorate;
+           comboBox2.Text = Data.currentUser.governorate;
 
 
             if (Data.currentUser.gender == 'm')

@@ -19,18 +19,7 @@ namespace vaccine_tracking_system
 
         }
 
-        public void deleteRecord(long id)
-        {
-            foreach (Admin admin in Data.admins)
-            {
-                if (admin.nationalID == id)
-                {
-                    Data.admins.Remove(admin);
-                    break;
-                }
-
-            }
-        }
+       
 
         //public void deleteUserRecord(long id)
         //{
