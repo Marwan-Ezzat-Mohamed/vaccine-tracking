@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace vaccine_tracking_system
 {
@@ -73,32 +69,29 @@ namespace vaccine_tracking_system
 
         public void vaccination(int ans, Nullable<DateTime> pickedDate)
         {
-            if (isActivated)
+
+            if (ans == 1)
             {
+                firstDose = true;
+                secondDose = false;
                 nextDoseDate = pickedDate;
-                if (ans == 1)
-                {
-                    firstDose = true;
-                    secondDose = false;
-                }
-                else if (ans == 2)
-                {
-                    firstDose = true;
-                    secondDose = true;
-                }
-                else
-                {
-                    firstDose = false;
-                    secondDose = false;
-                }
+
+            }
+            else if (ans == 2)
+            {
+                firstDose = true;
+                secondDose = true;
             }
             else
             {
-                isActivated = false;
                 firstDose = false;
                 secondDose = false;
-
             }
+
+
+
+
+
         }
 
     }

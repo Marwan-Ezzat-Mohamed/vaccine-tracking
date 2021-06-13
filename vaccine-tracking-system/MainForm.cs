@@ -412,6 +412,7 @@ namespace vaccine_tracking_system
                 newUser = new User(name_txt.Text, password_txt.Text,
                 Convert.ToInt64(ID_txt.Text), gov_txt.Text,
                 gender, DOBPicker.Value);
+                MessageBox.Show("Signed up successfully!");
 
             }
             catch (Exception)
@@ -424,7 +425,7 @@ namespace vaccine_tracking_system
             if (numberDosesComboBox.SelectedIndex == 0)
             {
                 newUser.waitingList = true;
-                newUser.vaccination(0, dateTimePicker1.Value);
+                newUser.vaccination(0, null);
             }
             else if (numberDosesComboBox.SelectedIndex == 1)
             {
