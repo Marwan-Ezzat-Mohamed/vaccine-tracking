@@ -16,7 +16,7 @@ namespace vaccine_tracking_system
 
         public Nullable<DateTime> dateOfBirth { get; set; } = null;
         public int age { get; set; } = 0;
-        public bool isVaccinated { get; set; } = false;
+        public bool isActivated { get; set; } = true;
         public bool firstDose { get; set; } = false;
         public bool secondDose { get; set; } = false;
         public bool waitingList { get; set; } = false;
@@ -24,7 +24,7 @@ namespace vaccine_tracking_system
         public Nullable<DateTime> nextDoseDate { get; set; } = null;
 
 
-        public User(string n, string pass, long id, string gov, char gen, DateTime dob, bool isVac)
+        public User(string n, string pass, long id, string gov, char gen, DateTime dob)
         {
             name = n;
             password = pass;
@@ -32,9 +32,9 @@ namespace vaccine_tracking_system
             governorate = gov;
             gender = gen;
 
-
+            dateOfBirth = dob;
             age = int.Parse((DateTime.Now - dob).Days.ToString()) / 365;
-            isVaccinated = isVac;
+            isActivated = true;
 
 
         }
@@ -73,7 +73,7 @@ namespace vaccine_tracking_system
 
         public void vaccination(int ans, Nullable<DateTime> pickedDate)
         {
-            if (isVaccinated)
+            if (isActivated)
             {
                 nextDoseDate = pickedDate;
                 if (ans == 1)
@@ -94,7 +94,7 @@ namespace vaccine_tracking_system
             }
             else
             {
-                isVaccinated = false;
+                isActivated = false;
                 firstDose = false;
                 secondDose = false;
 

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 
 namespace vaccine_tracking_system
@@ -21,7 +18,7 @@ namespace vaccine_tracking_system
         const int DAYSBEFORENEXTDOSE = 30;
 
         bool mouseDown;
-        int mouseX=0, mouseY=0;
+        int mouseX = 0, mouseY = 0;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -87,7 +84,7 @@ namespace vaccine_tracking_system
                     user.waitingList = false;
                     user.firstDose = true;
                     user.secondDose = true;
-                    user.isVaccinated = true;
+                    user.isActivated = true;
                     user.nextDoseDate = null;
                 }
             }
@@ -169,7 +166,7 @@ namespace vaccine_tracking_system
             numberDosesComboBox.Items.Add("Two Doses");
 
             dateTimePicker1.Enabled = false;
-            DOBPicker.MaxDate = DateTime.Now.AddYears(-MINAGETOTAKEDOSE);
+            //DOBPicker.MaxDate = DateTime.Now.AddYears(-MINAGETOTAKEDOSE);
             userBindingSource.DataSource = Data.users.Select(item => item.Value).ToList();
 
 
@@ -253,6 +250,8 @@ namespace vaccine_tracking_system
 
         private void yourInfoBtn_Click(object sender, EventArgs e)
         {
+            updateDataInYourInfo();
+
             yourInfoPanel.BringToFront();
 
             yourInfoBtn.ForeColor = Color.FromArgb(10, 14, 79);
@@ -310,10 +309,17 @@ namespace vaccine_tracking_system
                 User user = Data.users[inputId];
                 if (user.password == inputPassword)
                 {
-                    Data.currentUser = user;
-                    setUserDataInUI();
-                    userPanel.BringToFront();
-                    label15.Text = $"Hello, {user.name}";
+                    if (user.isActivated)
+                    {
+                        Data.currentUser = user;
+                        setUserDataInUI();
+                        userPanel.BringToFront();
+                        label15.Text = $"Hello, {user.name}";
+                    }
+                    else
+                    {
+                       MessageBox.Show("Please sign up to reactivate your account") ;
+                    }
                 }
                 else throw new Exception();
 
@@ -344,10 +350,7 @@ namespace vaccine_tracking_system
             }
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -388,10 +391,9 @@ namespace vaccine_tracking_system
 
 
 
-
-            bool isVaccinated = true;
+           
             User newUser = new User();
-            if (numberDosesComboBox.SelectedIndex == 0) isVaccinated = false;
+          
             //checks for empty fields
             try
             {
@@ -409,7 +411,7 @@ namespace vaccine_tracking_system
                 //DateTime bDate = new DateTime(2008, 3, 15);
                 newUser = new User(name_txt.Text, password_txt.Text,
                 Convert.ToInt64(ID_txt.Text), gov_txt.Text,
-                gender, DOBPicker.Value, isVaccinated);
+                gender, DOBPicker.Value);
 
             }
             catch (Exception)
@@ -433,9 +435,32 @@ namespace vaccine_tracking_system
                 newUser.vaccination(2, null);
             }
             setDaysLeft(newUser);
+            bool isac = false;
+            try
+            {
+                isac = Data.users[newUser.nationalID].isActivated;
+            }
+            catch
+            {
+                // isac = true;
+                Data.users.Add(newUser.nationalID, newUser);
+                return;
+            }
 
-            Data.users.Add(newUser.nationalID, newUser);
+            if (!isac)
+            {
+                MessageBox.Show("Account reactivated successfully!");
+                Data.users[newUser.nationalID]=newUser;
+                Data.users[newUser.nationalID].name = newUser.name;
+                Data.users[newUser.nationalID].governorate = newUser.governorate;
+                Data.users[newUser.nationalID].dateOfBirth = newUser.dateOfBirth;
+                Data.users[newUser.nationalID].gender = newUser.gender;
+                Data.users[newUser.nationalID].password = newUser.password;
 
+                panel2.BringToFront();
+
+            }
+            
         }
 
         private void setDaysLeft(User user)
@@ -496,38 +521,102 @@ namespace vaccine_tracking_system
         {
             if (newpass_txt.TextLength >= 8)
             {
-                if (Data.currentUser.password.Equals(oldPass_txt.Text))
-                {
-                    Data.currentUser.password = newpass_txt.Text;
-                    Data.currentUser.governorate = newGov_txt.Text;
-                    MessageBox.Show("User edited.");
+                Data.currentUser.name = NameTB.Text;
+                Data.currentUser.password = newpass_txt.Text;
 
-                }
-                else
-                {
+                Data.currentUser.governorate = newGov_txt.Text;
 
-                    MessageBox.Show("old password doesn't match.");
+
+                if (MaleRB.Checked)
+                {
+                    Data.currentUser.gender = 'm';
                 }
+                else if (FemaleRB.Checked)
+                {
+                    Data.currentUser.gender = 'f';
+                }
+
+                Data.currentUser.dateOfBirth = DOBPicker.Value;
+
+                MessageBox.Show("Updated Successfully!");
+
+
+
             }
-
             else
-                MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
+                MessageBox.Show("Password must be at least 8 characters.", "WEAK PASSWORD!");
         }
 
+
+        public void updateDataInYourInfo()
+        {
+            NameTB.Text = Data.currentUser.name;
+            newpass_txt.Text = Data.currentUser.password;
+            nationalIDTB.Text = Data.currentUser.nationalID.ToString();
+            newGov_txt.Text = Data.currentUser.governorate;
+
+
+            if (Data.currentUser.gender == 'm')
+            {
+                MaleRB.Checked = true;
+            }
+            else
+            {
+                FemaleRB.Checked = true;
+            }
+
+            DOBPicker.Value = Data.currentUser.dateOfBirth.Value;
+
+
+            if (Data.currentUser.secondDose)
+            {
+                NoDTxt.Text = "Two doses";
+            }
+            else if (Data.currentUser.firstDose)
+            {
+                NoDTxt.Text = "One dose";
+            }
+            else
+            {
+                NoDTxt.Text = "None";
+            }
+            if (Data.currentUser.nextDoseDate != null)
+            {
+                DoDTxt.Text = Data.currentUser.nextDoseDate.Value.ToString();
+            }
+
+
+        }
+        /* public void updateListInRecords()
+         {
+             string columns = "{0, -30}\t{1, -20}\t{2, -40}\t{3, -5}\t{4, -5}\t{5, -30}\t{6, -30}";
+             foreach (KeyValuePair<long, User> entry in Data.users)
+             {
+
+                     recordsList.Items.Add(string.Format(columns,
+                     entry.Value.name,
+                     entry.Value.governorate,
+                     entry.Value.nationalID,
+                     entry.Value.gender,
+                     entry.Value.age,
+                     entry.Value.firstDose,
+                     entry.Value.secondDose));
+
+
+             }
+         }*/
 
 
         private void deleteUser_btn_Click(object sender, EventArgs e)
         {
-            if (Data.currentUser.password.Equals(deleteUser_txt.Text))
+            if (MessageBox.Show("Are you sure you want to delete your record?",
+                "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                Data.currentUser.isActivated = false;
+                //User.deleteUser(Data.currentUser.nationalID);
+                MessageBox.Show("deleted successfully!");
 
-                User.deleteUser(Data.currentUser.nationalID);
-                MessageBox.Show("User deleted.");
                 mainPanel.BringToFront();
-            }
-            else
-            {
-                MessageBox.Show("invalid password.");
             }
         }
 
@@ -592,18 +681,18 @@ namespace vaccine_tracking_system
             usersGridViewForAdmin.Refresh();
         }
 
-        private void deleteAll_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to delete all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Data.users.Clear();
-                usersGridViewForAdmin.DataSource = new List<User>();
-                usersGridViewForAdmin.Update();
-                usersGridViewForAdmin.Refresh();
-            }
-        }
+        /* private void deleteAll_Click(object sender, EventArgs e)
+         {
+             if (MessageBox.Show("Are you sure you want to delete all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+             {
+                 Data.users.Clear();
+                 usersGridViewForAdmin.DataSource = new List<User>();
+                 usersGridViewForAdmin.Update();
+                 usersGridViewForAdmin.Refresh();
+             }
+         }*/
 
-        
+
 
         private void pictureBox5_MouseDown(object sender, MouseEventArgs e)
         {
@@ -616,8 +705,8 @@ namespace vaccine_tracking_system
             this.Close();
         }
 
-          
-        
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
