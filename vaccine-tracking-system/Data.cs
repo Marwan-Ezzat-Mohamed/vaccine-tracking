@@ -22,13 +22,15 @@ namespace vaccine_tracking_system
         public static void setIntialData()
         {
             DateTime bDate = new DateTime(2008, 3, 15);
-            users.Add(123, new User("joe", "1234", 123, "giza", 'M', bDate, true));
-            users.Add(1, new User("marwan", "1", 1, "cairo", 'M', bDate, true));
+            users.Add(123, new User("joe", "1234", 123, "giza", 'M', bDate, false));
+            users.Add(1, new User("marwan", "1", 1, "cairo", 'M', bDate, false));
             users.Add(123123123, new User("mina", "1234", 123123123, "giza", 'M', bDate, false));
             users.Add(123123123123, new User("khadiga", "1234", 123123123123, "giza", 'f', bDate, true));
             users.Add(1231123123, new User("noran", "1234", 1231123123, "giza", 'f', bDate, true));
 
-            
+            users[1].waitingList = true;
+            users[1].firstDose = false;
+            users[1].secondDose = false;
         }
     }
 }

@@ -11,8 +11,8 @@ namespace vaccine_tracking_system
         Color REDSTATUSCOLOR = Color.Red;
         Color GREENSTATUSCOLOR = Color.Green;
         const long EGYPTPOPULATION = 100;
-        User currentUser;
-
+        const int MINAGETOTAKEDOSE = 18;
+        const int DAYSBEFORENEXTDOSE = 30;
 
         private void setAdminDataInUI()
         {
@@ -36,6 +36,24 @@ namespace vaccine_tracking_system
         private void setUserDataInUI()
         {
             User user = Data.currentUser;
+            if (user.nextDoseDate <= DateTime.Now)
+            {
+                if (!user.firstDose)
+                {
+                    user.waitingList = false;
+                    user.firstDose = true;
+                    user.nextDoseDate = DateTime.Now.AddDays(DAYSBEFORENEXTDOSE);
+                }
+                else
+                {
+                    user.waitingList = false;
+                    user.firstDose = true;
+                    user.secondDose = true;
+                    user.isVaccinated = true;
+                    user.nextDoseDate = null;
+                }
+            }
+
             setDaysLeft(user);
             //update the hello label
             label15.Text = $"Hello, {user.name}";
@@ -116,8 +134,9 @@ namespace vaccine_tracking_system
             numberDosesComboBox.Items.Add("One Dose");
             numberDosesComboBox.Items.Add("Two Doses");
 
-
-            userBindingSource.DataSource = Data.users.Select(kvp => kvp.Value).ToList();
+            dateTimePicker1.Enabled = false;
+            DOBPicker.MaxDate = DateTime.Now.AddYears(-MINAGETOTAKEDOSE);
+            userBindingSource.DataSource = Data.users.Select(item => item.Value).ToList();
 
 
             recordsBtn.ForeColor = Color.White;
@@ -251,20 +270,25 @@ namespace vaccine_tracking_system
             }
 
             long inputId = Convert.ToInt64(natID_login.Text);
-            bool founduser = Data.users.ContainsKey(inputId);
             string inputPassword = pass_login.Text;
-            User user = Data.users[inputId];
-            if (founduser && user.password == inputPassword)
+            try
             {
-                Data.currentUser = user;
-                setUserDataInUI();
-                userPanel.BringToFront();
-                label15.Text = $"Hello, {user.name}";
+                User user = Data.users[inputId];
+                if (user.password == inputPassword)
+                {
+                    Data.currentUser = user;
+                    setUserDataInUI();
+                    userPanel.BringToFront();
+                    label15.Text = $"Hello, {user.name}";
+                }
+                else throw new Exception();
+
             }
-            else
+            catch (Exception)
             {
                 MessageBox.Show("invalid national ID or password. try again.");
             }
+
 
         }
 
@@ -368,7 +392,7 @@ namespace vaccine_tracking_system
             }
             else if (numberDosesComboBox.SelectedIndex == 1)
             {
-                newUser.vaccination(1, dateTimePicker1.Value.AddDays(30));
+                newUser.vaccination(1, dateTimePicker1.Value.AddDays(DAYSBEFORENEXTDOSE));
             }
             else if (numberDosesComboBox.SelectedIndex == 2)
             {
@@ -386,8 +410,19 @@ namespace vaccine_tracking_system
             {
                 label11.Text = "";
                 numberOfDaysLeft.Text = "You are in the waiting list";
+                progressBar1.Hide();
                 return;
             }
+
+
+            if (user.secondDose)
+            {
+                label11.Text = "";
+                numberOfDaysLeft.Text = "You are Vaccinated!";
+                progressBar1.Hide();
+                return;
+            }
+            progressBar1.Show();
             string dose = !user.firstDose ? "first" : "second";
             label11.Text = $"Days left untill the {dose } shot";
 
@@ -396,7 +431,8 @@ namespace vaccine_tracking_system
             ///-------------------still needs fixing---------------------//
             ///progressBar1.Maximum=
             numberOfDaysLeft.Text = Math.Max(1, daysLeft).ToString();
-            progressBar1.Value = Math.Abs(30 - daysLeft);
+            progressBar1.Maximum = DAYSBEFORENEXTDOSE;
+            progressBar1.Value = Math.Abs(DAYSBEFORENEXTDOSE - daysLeft);
 
         }
 
@@ -458,7 +494,7 @@ namespace vaccine_tracking_system
             else
             {
                 MessageBox.Show("invalid password.");
-            };
+            }
         }
 
         private void deleteAllUsersButton_Click(object sender, EventArgs e)
@@ -495,13 +531,13 @@ namespace vaccine_tracking_system
             else if (numberDosesComboBox.SelectedIndex == 0)
             {
                 dateTimePicker1.Enabled = false;
-                dateTimePicker1.MaxDate = DateTime.Now.AddDays(30);
+                dateTimePicker1.MaxDate = DateTime.Now.AddDays(DAYSBEFORENEXTDOSE);
                 dateTimePicker1.MinDate = DateTime.Now;
             }
             else if (numberDosesComboBox.SelectedIndex == 1)
             {
                 dateTimePicker1.Enabled = true;
-                dateTimePicker1.MinDate = DateTime.Now.AddDays(-30);
+                dateTimePicker1.MinDate = DateTime.Now.AddDays(-DAYSBEFORENEXTDOSE);
                 dateTimePicker1.MaxDate = DateTime.Now;
                 Console.WriteLine(DateTime.Now);
             }
@@ -527,10 +563,15 @@ namespace vaccine_tracking_system
             if (MessageBox.Show("Are you sure you want to delete all users?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Data.users.Clear();
-                usersGridViewForAdmin.DataSource =new List<User>();
+                usersGridViewForAdmin.DataSource = new List<User>();
                 usersGridViewForAdmin.Update();
                 usersGridViewForAdmin.Refresh();
             }
+        }
+
+        private void usersGridViewForAdmin_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
