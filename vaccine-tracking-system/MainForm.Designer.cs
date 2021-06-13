@@ -80,15 +80,6 @@ namespace vaccine_tracking_system
             this.label38 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.usersGridViewForAdmin = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nextDoseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deleteAllUsersButton = new System.Windows.Forms.Button();
             this.aboutAdminPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -136,6 +127,19 @@ namespace vaccine_tracking_system
             this.label12 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nextDoseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -146,7 +150,6 @@ namespace vaccine_tracking_system
             this.adminPanel.SuspendLayout();
             this.recordsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridViewForAdmin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.panel5.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
@@ -155,6 +158,9 @@ namespace vaccine_tracking_system
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.statusPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,7 +204,7 @@ namespace vaccine_tracking_system
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(812, 482);
+            this.mainPanel.Size = new System.Drawing.Size(812, 510);
             this.mainPanel.TabIndex = 1;
             // 
             // panel2
@@ -218,7 +224,7 @@ namespace vaccine_tracking_system
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(812, 482);
+            this.panel2.Size = new System.Drawing.Size(812, 510);
             this.panel2.TabIndex = 6;
             // 
             // label27
@@ -359,7 +365,7 @@ namespace vaccine_tracking_system
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(267, 17);
+            this.label1.Location = new System.Drawing.Point(263, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 64);
@@ -397,7 +403,7 @@ namespace vaccine_tracking_system
             this.signUpPanel.Location = new System.Drawing.Point(0, 0);
             this.signUpPanel.Margin = new System.Windows.Forms.Padding(2);
             this.signUpPanel.Name = "signUpPanel";
-            this.signUpPanel.Size = new System.Drawing.Size(812, 482);
+            this.signUpPanel.Size = new System.Drawing.Size(812, 510);
             this.signUpPanel.TabIndex = 0;
             // 
             // DOBPicker
@@ -713,7 +719,7 @@ namespace vaccine_tracking_system
             this.adminPanel.Location = new System.Drawing.Point(0, 0);
             this.adminPanel.Margin = new System.Windows.Forms.Padding(2);
             this.adminPanel.Name = "adminPanel";
-            this.adminPanel.Size = new System.Drawing.Size(812, 482);
+            this.adminPanel.Size = new System.Drawing.Size(812, 510);
             this.adminPanel.TabIndex = 1;
             // 
             // recordsPanel
@@ -797,66 +803,6 @@ namespace vaccine_tracking_system
             this.usersGridViewForAdmin.TabIndex = 3;
             this.usersGridViewForAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridViewForAdmin_CellContentClick_1);
             // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "governorate";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Governorate";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "nationalID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "gender";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "age";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Age";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewCheckBoxColumn6
-            // 
-            this.dataGridViewCheckBoxColumn6.DataPropertyName = "firstDose";
-            this.dataGridViewCheckBoxColumn6.HeaderText = "First Dose";
-            this.dataGridViewCheckBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn6.Name = "dataGridViewCheckBoxColumn6";
-            // 
-            // dataGridViewCheckBoxColumn7
-            // 
-            this.dataGridViewCheckBoxColumn7.DataPropertyName = "secondDose";
-            this.dataGridViewCheckBoxColumn7.HeaderText = "SecondDose";
-            this.dataGridViewCheckBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn7.Name = "dataGridViewCheckBoxColumn7";
-            // 
-            // nextDoseDateDataGridViewTextBoxColumn
-            // 
-            this.nextDoseDateDataGridViewTextBoxColumn.DataPropertyName = "nextDoseDate";
-            this.nextDoseDateDataGridViewTextBoxColumn.HeaderText = "NextDoseDate";
-            this.nextDoseDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nextDoseDateDataGridViewTextBoxColumn.Name = "nextDoseDateDataGridViewTextBoxColumn";
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(vaccine_tracking_system.User);
-            // 
             // deleteAllUsersButton
             // 
             this.deleteAllUsersButton.FlatAppearance.BorderSize = 0;
@@ -895,7 +841,7 @@ namespace vaccine_tracking_system
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(188, 482);
+            this.panel5.Size = new System.Drawing.Size(188, 510);
             this.panel5.TabIndex = 0;
             // 
             // logoutAdmin
@@ -1100,7 +1046,7 @@ namespace vaccine_tracking_system
             this.userPanel.Location = new System.Drawing.Point(0, 0);
             this.userPanel.Margin = new System.Windows.Forms.Padding(2);
             this.userPanel.Name = "userPanel";
-            this.userPanel.Size = new System.Drawing.Size(812, 482);
+            this.userPanel.Size = new System.Drawing.Size(812, 510);
             this.userPanel.TabIndex = 2;
             // 
             // yourInfoPanel
@@ -1256,7 +1202,7 @@ namespace vaccine_tracking_system
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(188, 482);
+            this.panel8.Size = new System.Drawing.Size(188, 510);
             this.panel8.TabIndex = 0;
             // 
             // panel9
@@ -1397,7 +1343,7 @@ namespace vaccine_tracking_system
             this.statusPanel.Location = new System.Drawing.Point(187, 0);
             this.statusPanel.Margin = new System.Windows.Forms.Padding(2);
             this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(625, 482);
+            this.statusPanel.Size = new System.Drawing.Size(625, 510);
             this.statusPanel.TabIndex = 1;
             // 
             // numberOfDaysLeft
@@ -1476,11 +1422,113 @@ namespace vaccine_tracking_system
             this.label11.TabIndex = 0;
             this.label11.Text = "Days left untill the second shot";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.closeButton);
+            this.panel3.Controls.Add(this.pictureBox5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(812, 27);
+            this.panel3.TabIndex = 8;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(655, 27);
+            this.pictureBox5.TabIndex = 10;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(771, 1);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(38, 23);
+            this.closeButton.TabIndex = 11;
+            this.closeButton.Text = "button1";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(677, 1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "governorate";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Governorate";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "nationalID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "gender";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "age";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewCheckBoxColumn6
+            // 
+            this.dataGridViewCheckBoxColumn6.DataPropertyName = "firstDose";
+            this.dataGridViewCheckBoxColumn6.HeaderText = "First Dose";
+            this.dataGridViewCheckBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn6.Name = "dataGridViewCheckBoxColumn6";
+            // 
+            // dataGridViewCheckBoxColumn7
+            // 
+            this.dataGridViewCheckBoxColumn7.DataPropertyName = "secondDose";
+            this.dataGridViewCheckBoxColumn7.HeaderText = "SecondDose";
+            this.dataGridViewCheckBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn7.Name = "dataGridViewCheckBoxColumn7";
+            // 
+            // nextDoseDateDataGridViewTextBoxColumn
+            // 
+            this.nextDoseDateDataGridViewTextBoxColumn.DataPropertyName = "nextDoseDate";
+            this.nextDoseDateDataGridViewTextBoxColumn.HeaderText = "NextDoseDate";
+            this.nextDoseDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nextDoseDateDataGridViewTextBoxColumn.Name = "nextDoseDateDataGridViewTextBoxColumn";
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(vaccine_tracking_system.User);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 482);
+            this.ClientSize = new System.Drawing.Size(812, 510);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.userPanel);
             this.Controls.Add(this.adminPanel);
@@ -1501,7 +1549,6 @@ namespace vaccine_tracking_system
             this.recordsPanel.ResumeLayout(false);
             this.recordsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridViewForAdmin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.panel5.ResumeLayout(false);
             this.statisticsPanel.ResumeLayout(false);
             this.statisticsPanel.PerformLayout();
@@ -1514,6 +1561,9 @@ namespace vaccine_tracking_system
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1643,6 +1693,10 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.DataGridViewTextBoxColumn nextDoseDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button deleteAll;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button button2;
     }
 }
 
