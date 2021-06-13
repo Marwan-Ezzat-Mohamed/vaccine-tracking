@@ -101,14 +101,6 @@ namespace vaccine_tracking_system
 
         }
 
-
-
-        void setPercentageOfWhoAppliedForVaccination()
-        {
-
-            percentageOfWhoAppliedBar.Value = (int)(((Data.users.Count * 100) / (EGYPTPOPULATION)));
-        }
-
         void setPercentageOfUnvaccinated()
         {
             double numberOfUnvaccinate = 0;
@@ -121,9 +113,8 @@ namespace vaccine_tracking_system
                 }
             }
             percentageOfUnvaccinatedBar.Value = (int)((numberOfUnvaccinate / Data.users.Count) * 100);
-
+            NonvaccinatedLbl.Text = ((int)((numberOfUnvaccinate / Data.users.Count) * 100)).ToString() + "%";
         }
-
         void setPercentageOfWhoGotAtleastOneDosebar()
         {
             double numberOfOneDose = 0;
@@ -135,10 +126,8 @@ namespace vaccine_tracking_system
                 }
             }
             percentageOfWhoGotAtleastOneDosebar.Value = (int)((numberOfOneDose / Data.users.Count) * 100);
-
+            OneDoseReceiversLbl.Text = ((int)((numberOfOneDose / Data.users.Count) * 100)).ToString() + "%";
         }
-
-
         void setPercentageOfWhoGotFullyVaccinated()
         {
             double numberOfVaccinate = 0;
@@ -150,11 +139,14 @@ namespace vaccine_tracking_system
                 }
             }
             percentageOfWhoGotFullyVaccinatedBar.Value = (int)((numberOfVaccinate / Data.users.Count) * 100);
-
+            FullyVaccinatedLbl.Text = ((int)((numberOfVaccinate / Data.users.Count) * 100)).ToString() + "%";
         }
+        void setPercentageOfWhoAppliedForVaccination()
+        {
 
-
-
+            percentageOfWhoAppliedBar.Value = (int)(((Data.users.Count * 100) / (EGYPTPOPULATION)));
+            AppliedLbl.Text = ((int)(((Data.users.Count * 100) / (EGYPTPOPULATION)))).ToString() + "%";
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -318,7 +310,7 @@ namespace vaccine_tracking_system
                     }
                     else
                     {
-                       MessageBox.Show("Please sign up to reactivate your account") ;
+                        MessageBox.Show("Please sign up to reactivate your account");
                     }
                 }
                 else throw new Exception();
@@ -350,7 +342,7 @@ namespace vaccine_tracking_system
             }
         }
 
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -391,9 +383,9 @@ namespace vaccine_tracking_system
 
 
 
-           
+
             User newUser = new User();
-          
+
             //checks for empty fields
             try
             {
@@ -413,6 +405,7 @@ namespace vaccine_tracking_system
                 Convert.ToInt64(ID_txt.Text), gov_txt.Text,
                 gender, DOBPicker.Value);
                 MessageBox.Show("Signed up successfully!");
+                return;
 
             }
             catch (Exception)
@@ -451,7 +444,7 @@ namespace vaccine_tracking_system
             if (!isac)
             {
                 MessageBox.Show("Account reactivated successfully!");
-                Data.users[newUser.nationalID]=newUser;
+                Data.users[newUser.nationalID] = newUser;
                 Data.users[newUser.nationalID].name = newUser.name;
                 Data.users[newUser.nationalID].governorate = newUser.governorate;
                 Data.users[newUser.nationalID].dateOfBirth = newUser.dateOfBirth;
@@ -461,7 +454,7 @@ namespace vaccine_tracking_system
                 panel2.BringToFront();
 
             }
-            
+
         }
 
         private void setDaysLeft(User user)
