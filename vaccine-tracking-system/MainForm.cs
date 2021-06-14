@@ -17,7 +17,7 @@ namespace vaccine_tracking_system
         const int MINAGETOTAKEDOSE = 18;
         const int DAYSBEFORENEXTDOSE = 30;
 
-        
+
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -52,6 +52,7 @@ namespace vaccine_tracking_system
         {
             //updates the statisctics
 
+            loadCharts();
             setPercentageOfWhoGotFullyVaccinated();
             setPercentageOfUnvaccinated();
             setPercentageOfWhoAppliedForVaccination();
@@ -100,6 +101,49 @@ namespace vaccine_tracking_system
 
         }
 
+
+        public void loadCharts()
+        {
+            //18-30
+            //30-70
+            //70 and up
+            int limit30 = 0, limit70 = 0, limit70up = 0,
+                males = 0, females = 0;
+
+
+            foreach (KeyValuePair<long, User> entry in Data.users)
+            {
+                if (entry.Value.age <= 30)
+                {
+                    limit30++;
+                }
+                else if (entry.Value.age > 30 && entry.Value.age <= 70)
+                {
+                    limit70++;
+                }
+                else if (entry.Value.age > 70)
+                {
+                    limit70up++;
+                }
+
+
+                if (entry.Value.gender == 'm')
+                {
+                    males++;
+                }
+                else
+                {
+                    females++;
+                }
+
+            }
+
+            ageChart.Series["Age Groups"].Points.AddXY("18 to 30", limit30);
+            ageChart.Series["Age Groups"].Points.AddXY("30 to 70", limit70);
+            ageChart.Series["Age Groups"].Points.AddXY("70 and up", limit70up);
+            genderChart.Series["Gender Groups"].Points.AddXY("Males", males);
+            genderChart.Series["Gender Groups"].Points.AddXY("Females", females);
+        }
         void setPercentageOfUnvaccinated()
         {
             double numberOfUnvaccinate = 0;
@@ -418,7 +462,7 @@ namespace vaccine_tracking_system
                 return;
             }
 
-            if (comboBox1.SelectedItem!=null&&int.TryParse(comboBox1.SelectedItem.ToString(), out _))
+            if (comboBox1.SelectedItem != null && int.TryParse(comboBox1.SelectedItem.ToString(), out _))
             {
                 MessageBox.Show("governorate must have no numbers in it");
                 return;
@@ -441,17 +485,17 @@ namespace vaccine_tracking_system
                 MessageBox.Show("Password must be 8 or more characters.", "WEAK PASSWORD!");
                 return;
             }
-            if (!RBMale.Checked&& !RBFemale.Checked)
+            if (!RBMale.Checked && !RBFemale.Checked)
             {
                 MessageBox.Show("You must select a gender", "ERROR!");
                 return;
             }
-            if (DOBPicker.Value.ToString()=="")
+            if (DOBPicker.Value.ToString() == "")
             {
                 MessageBox.Show("You must select a date of birth", "ERROR!");
                 return;
             }
-            
+
 
             User newUser = new User();
 
@@ -473,8 +517,8 @@ namespace vaccine_tracking_system
                 newUser = new User(name_txt.Text, password_txt.Text,
                 Convert.ToInt64(ID_txt.Text), comboBox1.SelectedItem.ToString(),
                 gender, DOBPicker.Value);
-               
-               
+
+
 
             }
             catch (Exception)
@@ -513,7 +557,7 @@ namespace vaccine_tracking_system
             if (!isActivated)
             {
                 MessageBox.Show("Account reactivated successfully!");
-                
+
                 Data.users[newUser.nationalID].name = newUser.name;
                 Data.users[newUser.nationalID].governorate = newUser.governorate;
                 Data.users[newUser.nationalID].dateOfBirth = newUser.dateOfBirth;
@@ -616,7 +660,7 @@ namespace vaccine_tracking_system
             NameTB.Text = Data.currentUser.name;
             newpass_txt.Text = Data.currentUser.password;
             nationalIDTB.Text = Data.currentUser.nationalID.ToString();
-           comboBox2.Text = Data.currentUser.governorate;
+            comboBox2.Text = Data.currentUser.governorate;
 
 
             if (Data.currentUser.gender == 'm')
