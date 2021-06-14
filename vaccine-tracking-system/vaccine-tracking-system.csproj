@@ -115,5 +115,11 @@
   <ItemGroup>
     <None Include="Resources\redbutton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Asset 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\who-emblem.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

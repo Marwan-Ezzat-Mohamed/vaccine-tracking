@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using System.Diagnostics;
 
 namespace vaccine_tracking_system
 {
@@ -823,6 +823,11 @@ namespace vaccine_tracking_system
         private void usersGridViewForAdmin_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.who.int/");
         }
     }
 }

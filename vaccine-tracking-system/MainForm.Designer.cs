@@ -30,18 +30,17 @@ namespace vaccine_tracking_system
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.signUpPanel = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -56,7 +55,6 @@ namespace vaccine_tracking_system
             this.label28 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.submit_user = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -71,12 +69,9 @@ namespace vaccine_tracking_system
             this.panel2 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.loginBtn1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pass_login = new System.Windows.Forms.TextBox();
             this.natID_login = new System.Windows.Forms.TextBox();
@@ -102,18 +97,12 @@ namespace vaccine_tracking_system
             this.usersGridViewForAdmin = new System.Windows.Forms.DataGridView();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nextDoseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteAllUsersButton = new System.Windows.Forms.Button();
             this.aboutAdminPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.logoutAdmin = new System.Windows.Forms.Button();
-            this.aboutBtnAdmin = new System.Windows.Forms.Button();
-            this.recordsBtn = new System.Windows.Forms.Button();
-            this.statisticsBtn = new System.Windows.Forms.Button();
             this.userPanel = new System.Windows.Forms.Panel();
             this.yourInfoPanel = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.DoBTxt = new System.Windows.Forms.DateTimePicker();
             this.FemaleRB = new System.Windows.Forms.RadioButton();
             this.MaleRB = new System.Windows.Forms.RadioButton();
@@ -138,11 +127,6 @@ namespace vaccine_tracking_system
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.logutBtn = new System.Windows.Forms.Button();
-            this.aboutUserBtn = new System.Windows.Forms.Button();
-            this.yourInfoBtn = new System.Windows.Forms.Button();
-            this.statusBtn = new System.Windows.Forms.Button();
             this.aboutUserPanel = new System.Windows.Forms.Panel();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.numberOfDaysLeft = new System.Windows.Forms.Label();
@@ -155,8 +139,42 @@ namespace vaccine_tracking_system
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.genderChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.logutBtn = new System.Windows.Forms.Button();
+            this.aboutUserBtn = new System.Windows.Forms.Button();
+            this.yourInfoBtn = new System.Windows.Forms.Button();
+            this.statusBtn = new System.Windows.Forms.Button();
+            this.loginBtn1 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.submit_user = new System.Windows.Forms.Button();
+            this.deleteAllUsersButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoutAdmin = new System.Windows.Forms.Button();
+            this.aboutBtnAdmin = new System.Windows.Forms.Button();
+            this.recordsBtn = new System.Windows.Forms.Button();
+            this.statisticsBtn = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,27 +184,33 @@ namespace vaccine_tracking_system
             this.dataGridViewCheckBoxColumn7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.signUpPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.adminPanel.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ageChart)).BeginInit();
             this.recordsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridViewForAdmin)).BeginInit();
+            this.aboutAdminPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.userPanel.SuspendLayout();
             this.yourInfoPanel.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.aboutUserPanel.SuspendLayout();
             this.statusPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,17 +236,6 @@ namespace vaccine_tracking_system
             this.label3.TabIndex = 2;
             this.label3.Text = "Hello, username";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(83, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 87);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // mainPanel
             // 
@@ -408,25 +421,6 @@ namespace vaccine_tracking_system
             this.dateTimePicker1.Size = new System.Drawing.Size(227, 28);
             this.dateTimePicker1.TabIndex = 32;
             // 
-            // submit_user
-            // 
-            this.submit_user.FlatAppearance.BorderSize = 0;
-            this.submit_user.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.submit_user.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.submit_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submit_user.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_user.ForeColor = System.Drawing.Color.White;
-            this.submit_user.Image = global::vaccine_tracking_system.Properties.Resources.button_1;
-            this.submit_user.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.submit_user.Location = new System.Drawing.Point(471, 469);
-            this.submit_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.submit_user.Name = "submit_user";
-            this.submit_user.Size = new System.Drawing.Size(141, 74);
-            this.submit_user.TabIndex = 20;
-            this.submit_user.Text = "Submit";
-            this.submit_user.UseVisualStyleBackColor = true;
-            this.submit_user.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -590,25 +584,6 @@ namespace vaccine_tracking_system
             this.label4.Size = new System.Drawing.Size(300, 2);
             this.label4.TabIndex = 6;
             // 
-            // loginBtn1
-            // 
-            this.loginBtn1.FlatAppearance.BorderSize = 0;
-            this.loginBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.loginBtn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.loginBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginBtn1.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn1.ForeColor = System.Drawing.Color.White;
-            this.loginBtn1.Image = global::vaccine_tracking_system.Properties.Resources.button_1;
-            this.loginBtn1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.loginBtn1.Location = new System.Drawing.Point(468, 430);
-            this.loginBtn1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.loginBtn1.Name = "loginBtn1";
-            this.loginBtn1.Size = new System.Drawing.Size(147, 71);
-            this.loginBtn1.TabIndex = 5;
-            this.loginBtn1.Text = "Login";
-            this.loginBtn1.UseVisualStyleBackColor = true;
-            this.loginBtn1.Click += new System.EventHandler(this.loginBtn1_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -641,28 +616,6 @@ namespace vaccine_tracking_system
             this.label6.Size = new System.Drawing.Size(104, 21);
             this.label6.TabIndex = 4;
             this.label6.Text = "National ID";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::vaccine_tracking_system.Properties.Resources.password1;
-            this.pictureBox3.Location = new System.Drawing.Point(348, 354);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(21, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::vaccine_tracking_system.Properties.Resources.username1;
-            this.pictureBox2.Location = new System.Drawing.Point(345, 270);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
             // 
             // label5
             // 
@@ -712,9 +665,9 @@ namespace vaccine_tracking_system
             // adminPanel
             // 
             this.adminPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.adminPanel.Controls.Add(this.aboutAdminPanel);
             this.adminPanel.Controls.Add(this.statisticsPanel);
             this.adminPanel.Controls.Add(this.recordsPanel);
-            this.adminPanel.Controls.Add(this.aboutAdminPanel);
             this.adminPanel.Controls.Add(this.panel5);
             this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPanel.Location = new System.Drawing.Point(0, 34);
@@ -749,17 +702,17 @@ namespace vaccine_tracking_system
             // ageChart
             // 
             this.ageChart.BorderSkin.BackColor = System.Drawing.Color.Maroon;
-            chartArea3.Name = "ChartArea1";
-            this.ageChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.ageChart.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.ageChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ageChart.Legends.Add(legend2);
             this.ageChart.Location = new System.Drawing.Point(20, 255);
             this.ageChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ageChart.Name = "ageChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Age Groups";
-            this.ageChart.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Age Groups";
+            this.ageChart.Series.Add(series2);
             this.ageChart.Size = new System.Drawing.Size(387, 352);
             this.ageChart.TabIndex = 15;
             this.ageChart.Text = "ageChart";
@@ -970,18 +923,18 @@ namespace vaccine_tracking_system
             this.usersGridViewForAdmin.Location = new System.Drawing.Point(0, 93);
             this.usersGridViewForAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usersGridViewForAdmin.Name = "usersGridViewForAdmin";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usersGridViewForAdmin.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usersGridViewForAdmin.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.usersGridViewForAdmin.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            this.usersGridViewForAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.usersGridViewForAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.usersGridViewForAdmin.RowTemplate.Height = 24;
             this.usersGridViewForAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersGridViewForAdmin.Size = new System.Drawing.Size(829, 533);
@@ -1005,31 +958,22 @@ namespace vaccine_tracking_system
             this.nextDoseDate.Name = "nextDoseDate";
             this.nextDoseDate.Width = 128;
             // 
-            // deleteAllUsersButton
-            // 
-            this.deleteAllUsersButton.FlatAppearance.BorderSize = 0;
-            this.deleteAllUsersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.deleteAllUsersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.deleteAllUsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteAllUsersButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.deleteAllUsersButton.ForeColor = System.Drawing.Color.White;
-            this.deleteAllUsersButton.Image = global::vaccine_tracking_system.Properties.Resources.redbutton;
-            this.deleteAllUsersButton.Location = new System.Drawing.Point(23, 25);
-            this.deleteAllUsersButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deleteAllUsersButton.Name = "deleteAllUsersButton";
-            this.deleteAllUsersButton.Size = new System.Drawing.Size(115, 46);
-            this.deleteAllUsersButton.TabIndex = 2;
-            this.deleteAllUsersButton.Text = "Delete";
-            this.deleteAllUsersButton.UseVisualStyleBackColor = true;
-            this.deleteAllUsersButton.Click += new System.EventHandler(this.deleteAllUsersButton_Click);
-            // 
             // aboutAdminPanel
             // 
-            this.aboutAdminPanel.BackColor = System.Drawing.Color.Cyan;
+            this.aboutAdminPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
+            this.aboutAdminPanel.Controls.Add(this.linkLabel2);
+            this.aboutAdminPanel.Controls.Add(this.pictureBox8);
+            this.aboutAdminPanel.Controls.Add(this.pictureBox9);
+            this.aboutAdminPanel.Controls.Add(this.label51);
+            this.aboutAdminPanel.Controls.Add(this.label52);
+            this.aboutAdminPanel.Controls.Add(this.label53);
+            this.aboutAdminPanel.Controls.Add(this.label54);
+            this.aboutAdminPanel.Controls.Add(this.label55);
+            this.aboutAdminPanel.Controls.Add(this.label56);
             this.aboutAdminPanel.Location = new System.Drawing.Point(253, 0);
             this.aboutAdminPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aboutAdminPanel.Name = "aboutAdminPanel";
-            this.aboutAdminPanel.Size = new System.Drawing.Size(829, 593);
+            this.aboutAdminPanel.Size = new System.Drawing.Size(829, 626);
             this.aboutAdminPanel.TabIndex = 0;
             // 
             // panel5
@@ -1047,96 +991,13 @@ namespace vaccine_tracking_system
             this.panel5.Size = new System.Drawing.Size(251, 627);
             this.panel5.TabIndex = 0;
             // 
-            // logoutAdmin
-            // 
-            this.logoutAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutAdmin.FlatAppearance.BorderSize = 0;
-            this.logoutAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.logoutAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.logoutAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutAdmin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutAdmin.ForeColor = System.Drawing.Color.White;
-            this.logoutAdmin.Image = ((System.Drawing.Image)(resources.GetObject("logoutAdmin.Image")));
-            this.logoutAdmin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.logoutAdmin.Location = new System.Drawing.Point(55, 482);
-            this.logoutAdmin.Margin = new System.Windows.Forms.Padding(0);
-            this.logoutAdmin.Name = "logoutAdmin";
-            this.logoutAdmin.Size = new System.Drawing.Size(141, 73);
-            this.logoutAdmin.TabIndex = 5;
-            this.logoutAdmin.Text = "Logout";
-            this.logoutAdmin.UseVisualStyleBackColor = true;
-            this.logoutAdmin.Click += new System.EventHandler(this.logout_Click);
-            // 
-            // aboutBtnAdmin
-            // 
-            this.aboutBtnAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.aboutBtnAdmin.FlatAppearance.BorderSize = 0;
-            this.aboutBtnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.aboutBtnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.aboutBtnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aboutBtnAdmin.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBtnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.aboutBtnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("aboutBtnAdmin.Image")));
-            this.aboutBtnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aboutBtnAdmin.Location = new System.Drawing.Point(-9, 334);
-            this.aboutBtnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.aboutBtnAdmin.Name = "aboutBtnAdmin";
-            this.aboutBtnAdmin.Size = new System.Drawing.Size(224, 42);
-            this.aboutBtnAdmin.TabIndex = 2;
-            this.aboutBtnAdmin.Text = "    ℹ️ About\r\n\r\n\r\n\r\n\r\n";
-            this.aboutBtnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aboutBtnAdmin.UseVisualStyleBackColor = false;
-            this.aboutBtnAdmin.Click += new System.EventHandler(this.aboutBtnAdmin_Click);
-            // 
-            // recordsBtn
-            // 
-            this.recordsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.recordsBtn.FlatAppearance.BorderSize = 0;
-            this.recordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.recordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.recordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recordsBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.recordsBtn.Image = ((System.Drawing.Image)(resources.GetObject("recordsBtn.Image")));
-            this.recordsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.recordsBtn.Location = new System.Drawing.Point(-9, 277);
-            this.recordsBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.recordsBtn.Name = "recordsBtn";
-            this.recordsBtn.Size = new System.Drawing.Size(224, 42);
-            this.recordsBtn.TabIndex = 3;
-            this.recordsBtn.Text = "    📁 Records\r\n\r\n\r\n\r\n\r\n";
-            this.recordsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.recordsBtn.UseVisualStyleBackColor = false;
-            this.recordsBtn.Click += new System.EventHandler(this.recordsBtn_Click);
-            // 
-            // statisticsBtn
-            // 
-            this.statisticsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.statisticsBtn.FlatAppearance.BorderSize = 0;
-            this.statisticsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.statisticsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.statisticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statisticsBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statisticsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.statisticsBtn.Image = ((System.Drawing.Image)(resources.GetObject("statisticsBtn.Image")));
-            this.statisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statisticsBtn.Location = new System.Drawing.Point(-9, 220);
-            this.statisticsBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.statisticsBtn.Name = "statisticsBtn";
-            this.statisticsBtn.Size = new System.Drawing.Size(224, 42);
-            this.statisticsBtn.TabIndex = 4;
-            this.statisticsBtn.Text = "    📈 Statistics\r\n\r\n\r\n\r\n\r\n";
-            this.statisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statisticsBtn.UseVisualStyleBackColor = false;
-            this.statisticsBtn.Click += new System.EventHandler(this.statisticsBtn_Click);
-            // 
             // userPanel
             // 
             this.userPanel.BackColor = System.Drawing.Color.DarkBlue;
             this.userPanel.Controls.Add(this.statusPanel);
             this.userPanel.Controls.Add(this.yourInfoPanel);
-            this.userPanel.Controls.Add(this.panel8);
             this.userPanel.Controls.Add(this.aboutUserPanel);
+            this.userPanel.Controls.Add(this.panel8);
             this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userPanel.Location = new System.Drawing.Point(0, 34);
             this.userPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1206,26 +1067,6 @@ namespace vaccine_tracking_system
             this.button3.Text = "🗑 Delete My Record";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.deleteUser_btn_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(347, 471);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 73);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "💾 Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.edit_btn_Click);
             // 
             // DoBTxt
             // 
@@ -1504,107 +1345,22 @@ namespace vaccine_tracking_system
             this.label15.TabIndex = 2;
             this.label15.Text = "Hello, username";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(83, 25);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(87, 87);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // logutBtn
-            // 
-            this.logutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logutBtn.FlatAppearance.BorderSize = 0;
-            this.logutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.logutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.logutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logutBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logutBtn.ForeColor = System.Drawing.Color.White;
-            this.logutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logutBtn.Image")));
-            this.logutBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.logutBtn.Location = new System.Drawing.Point(55, 482);
-            this.logutBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.logutBtn.Name = "logutBtn";
-            this.logutBtn.Size = new System.Drawing.Size(141, 73);
-            this.logutBtn.TabIndex = 5;
-            this.logutBtn.Text = "Logout";
-            this.logutBtn.UseVisualStyleBackColor = true;
-            this.logutBtn.Click += new System.EventHandler(this.logout_Click);
-            // 
-            // aboutUserBtn
-            // 
-            this.aboutUserBtn.BackColor = System.Drawing.Color.Transparent;
-            this.aboutUserBtn.FlatAppearance.BorderSize = 0;
-            this.aboutUserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.aboutUserBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.aboutUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aboutUserBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.aboutUserBtn.Image = ((System.Drawing.Image)(resources.GetObject("aboutUserBtn.Image")));
-            this.aboutUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aboutUserBtn.Location = new System.Drawing.Point(-9, 334);
-            this.aboutUserBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.aboutUserBtn.Name = "aboutUserBtn";
-            this.aboutUserBtn.Size = new System.Drawing.Size(224, 42);
-            this.aboutUserBtn.TabIndex = 2;
-            this.aboutUserBtn.Text = "    ℹ️ About\r\n\r\n\r\n\r\n\r\n";
-            this.aboutUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.aboutUserBtn.UseVisualStyleBackColor = false;
-            this.aboutUserBtn.Click += new System.EventHandler(this.aboutUserBtn_Click);
-            // 
-            // yourInfoBtn
-            // 
-            this.yourInfoBtn.BackColor = System.Drawing.Color.Transparent;
-            this.yourInfoBtn.FlatAppearance.BorderSize = 0;
-            this.yourInfoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.yourInfoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.yourInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.yourInfoBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yourInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.yourInfoBtn.Image = ((System.Drawing.Image)(resources.GetObject("yourInfoBtn.Image")));
-            this.yourInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.yourInfoBtn.Location = new System.Drawing.Point(-9, 277);
-            this.yourInfoBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.yourInfoBtn.Name = "yourInfoBtn";
-            this.yourInfoBtn.Size = new System.Drawing.Size(224, 42);
-            this.yourInfoBtn.TabIndex = 3;
-            this.yourInfoBtn.Text = "    📁 Your Info\r\n\r\n\r\n\r\n\r\n";
-            this.yourInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.yourInfoBtn.UseVisualStyleBackColor = false;
-            this.yourInfoBtn.Click += new System.EventHandler(this.yourInfoBtn_Click);
-            // 
-            // statusBtn
-            // 
-            this.statusBtn.BackColor = System.Drawing.Color.Transparent;
-            this.statusBtn.FlatAppearance.BorderSize = 0;
-            this.statusBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.statusBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.statusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statusBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
-            this.statusBtn.Image = ((System.Drawing.Image)(resources.GetObject("statusBtn.Image")));
-            this.statusBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statusBtn.Location = new System.Drawing.Point(-9, 220);
-            this.statusBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.statusBtn.Name = "statusBtn";
-            this.statusBtn.Size = new System.Drawing.Size(224, 42);
-            this.statusBtn.TabIndex = 4;
-            this.statusBtn.Text = "    📈 Status\r\n\r\n\r\n\r\n";
-            this.statusBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statusBtn.UseVisualStyleBackColor = false;
-            this.statusBtn.Click += new System.EventHandler(this.statusBtn_Click);
-            // 
             // aboutUserPanel
             // 
             this.aboutUserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(9)))), ((int)(((byte)(50)))));
+            this.aboutUserPanel.Controls.Add(this.linkLabel1);
+            this.aboutUserPanel.Controls.Add(this.pictureBox7);
+            this.aboutUserPanel.Controls.Add(this.pictureBox6);
+            this.aboutUserPanel.Controls.Add(this.label33);
+            this.aboutUserPanel.Controls.Add(this.label44);
+            this.aboutUserPanel.Controls.Add(this.label37);
+            this.aboutUserPanel.Controls.Add(this.label35);
+            this.aboutUserPanel.Controls.Add(this.label34);
+            this.aboutUserPanel.Controls.Add(this.label32);
             this.aboutUserPanel.Location = new System.Drawing.Point(251, 0);
             this.aboutUserPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aboutUserPanel.Name = "aboutUserPanel";
-            this.aboutUserPanel.Size = new System.Drawing.Size(833, 593);
+            this.aboutUserPanel.Size = new System.Drawing.Size(833, 626);
             this.aboutUserPanel.TabIndex = 15;
             // 
             // statusPanel
@@ -1753,36 +1509,524 @@ namespace vaccine_tracking_system
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // genderChart
+            // 
+            this.genderChart.BorderSkin.BackColor = System.Drawing.Color.Maroon;
+            chartArea1.Name = "ChartArea1";
+            this.genderChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.genderChart.Legends.Add(legend1);
+            this.genderChart.Location = new System.Drawing.Point(424, 255);
+            this.genderChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.genderChart.Name = "genderChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Gender Groups";
+            this.genderChart.Series.Add(series1);
+            this.genderChart.Size = new System.Drawing.Size(387, 352);
+            this.genderChart.TabIndex = 15;
+            this.genderChart.Text = "ageChart";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(56, 56);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(537, 37);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Be SMART and inform yourself about";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(583, 56);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(205, 37);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "#coronavirus";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(152, 142);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(508, 60);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Follow accurate public health advice \r\nfrom WHO and your local health authority";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Location = new System.Drawing.Point(152, 232);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(562, 30);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "Follow the news on latest coronavirus updates";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.White;
+            this.label37.Location = new System.Drawing.Point(152, 300);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(557, 60);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "To avoid spreading rumors, always check the \r\nsource you are getting information " +
+    "from";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.White;
+            this.label44.Location = new System.Drawing.Point(152, 390);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(249, 30);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Don\'t spread rumors";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::vaccine_tracking_system.Properties.Resources.who_emblem;
+            this.pictureBox7.Location = new System.Drawing.Point(66, 482);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::vaccine_tracking_system.Properties.Resources.Asset_9;
+            this.pictureBox6.Location = new System.Drawing.Point(66, 146);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(55, 286);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 1;
+            this.pictureBox6.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(347, 471);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 73);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "💾 Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.edit_btn_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(83, 25);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(87, 87);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // logutBtn
+            // 
+            this.logutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logutBtn.FlatAppearance.BorderSize = 0;
+            this.logutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.logutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.logutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logutBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logutBtn.ForeColor = System.Drawing.Color.White;
+            this.logutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logutBtn.Image")));
+            this.logutBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.logutBtn.Location = new System.Drawing.Point(55, 482);
+            this.logutBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.logutBtn.Name = "logutBtn";
+            this.logutBtn.Size = new System.Drawing.Size(141, 73);
+            this.logutBtn.TabIndex = 5;
+            this.logutBtn.Text = "Logout";
+            this.logutBtn.UseVisualStyleBackColor = true;
+            this.logutBtn.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // aboutUserBtn
+            // 
+            this.aboutUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.aboutUserBtn.FlatAppearance.BorderSize = 0;
+            this.aboutUserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.aboutUserBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.aboutUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aboutUserBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.aboutUserBtn.Image = ((System.Drawing.Image)(resources.GetObject("aboutUserBtn.Image")));
+            this.aboutUserBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aboutUserBtn.Location = new System.Drawing.Point(-9, 334);
+            this.aboutUserBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.aboutUserBtn.Name = "aboutUserBtn";
+            this.aboutUserBtn.Size = new System.Drawing.Size(224, 42);
+            this.aboutUserBtn.TabIndex = 2;
+            this.aboutUserBtn.Text = "    ℹ️ About\r\n\r\n\r\n\r\n\r\n";
+            this.aboutUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aboutUserBtn.UseVisualStyleBackColor = false;
+            this.aboutUserBtn.Click += new System.EventHandler(this.aboutUserBtn_Click);
+            // 
+            // yourInfoBtn
+            // 
+            this.yourInfoBtn.BackColor = System.Drawing.Color.Transparent;
+            this.yourInfoBtn.FlatAppearance.BorderSize = 0;
+            this.yourInfoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.yourInfoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.yourInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yourInfoBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.yourInfoBtn.Image = ((System.Drawing.Image)(resources.GetObject("yourInfoBtn.Image")));
+            this.yourInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.yourInfoBtn.Location = new System.Drawing.Point(-9, 277);
+            this.yourInfoBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yourInfoBtn.Name = "yourInfoBtn";
+            this.yourInfoBtn.Size = new System.Drawing.Size(224, 42);
+            this.yourInfoBtn.TabIndex = 3;
+            this.yourInfoBtn.Text = "    📁 Your Info\r\n\r\n\r\n\r\n\r\n";
+            this.yourInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.yourInfoBtn.UseVisualStyleBackColor = false;
+            this.yourInfoBtn.Click += new System.EventHandler(this.yourInfoBtn_Click);
+            // 
+            // statusBtn
+            // 
+            this.statusBtn.BackColor = System.Drawing.Color.Transparent;
+            this.statusBtn.FlatAppearance.BorderSize = 0;
+            this.statusBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.statusBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.statusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statusBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.statusBtn.Image = ((System.Drawing.Image)(resources.GetObject("statusBtn.Image")));
+            this.statusBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusBtn.Location = new System.Drawing.Point(-9, 220);
+            this.statusBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.statusBtn.Name = "statusBtn";
+            this.statusBtn.Size = new System.Drawing.Size(224, 42);
+            this.statusBtn.TabIndex = 4;
+            this.statusBtn.Text = "    📈 Status\r\n\r\n\r\n\r\n";
+            this.statusBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusBtn.UseVisualStyleBackColor = false;
+            this.statusBtn.Click += new System.EventHandler(this.statusBtn_Click);
+            // 
+            // loginBtn1
+            // 
+            this.loginBtn1.FlatAppearance.BorderSize = 0;
+            this.loginBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.loginBtn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.loginBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginBtn1.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn1.ForeColor = System.Drawing.Color.White;
+            this.loginBtn1.Image = global::vaccine_tracking_system.Properties.Resources.button_1;
+            this.loginBtn1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.loginBtn1.Location = new System.Drawing.Point(468, 430);
+            this.loginBtn1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loginBtn1.Name = "loginBtn1";
+            this.loginBtn1.Size = new System.Drawing.Size(147, 71);
+            this.loginBtn1.TabIndex = 5;
+            this.loginBtn1.Text = "Login";
+            this.loginBtn1.UseVisualStyleBackColor = true;
+            this.loginBtn1.Click += new System.EventHandler(this.loginBtn1_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::vaccine_tracking_system.Properties.Resources.password1;
+            this.pictureBox3.Location = new System.Drawing.Point(348, 354);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(21, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::vaccine_tracking_system.Properties.Resources.username1;
+            this.pictureBox2.Location = new System.Drawing.Point(345, 270);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // submit_user
+            // 
+            this.submit_user.FlatAppearance.BorderSize = 0;
+            this.submit_user.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.submit_user.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.submit_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submit_user.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_user.ForeColor = System.Drawing.Color.White;
+            this.submit_user.Image = global::vaccine_tracking_system.Properties.Resources.button_1;
+            this.submit_user.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.submit_user.Location = new System.Drawing.Point(471, 469);
+            this.submit_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.submit_user.Name = "submit_user";
+            this.submit_user.Size = new System.Drawing.Size(141, 74);
+            this.submit_user.TabIndex = 20;
+            this.submit_user.Text = "Submit";
+            this.submit_user.UseVisualStyleBackColor = true;
+            this.submit_user.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // deleteAllUsersButton
+            // 
+            this.deleteAllUsersButton.FlatAppearance.BorderSize = 0;
+            this.deleteAllUsersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.deleteAllUsersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.deleteAllUsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteAllUsersButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.deleteAllUsersButton.ForeColor = System.Drawing.Color.White;
+            this.deleteAllUsersButton.Image = global::vaccine_tracking_system.Properties.Resources.redbutton;
+            this.deleteAllUsersButton.Location = new System.Drawing.Point(23, 25);
+            this.deleteAllUsersButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteAllUsersButton.Name = "deleteAllUsersButton";
+            this.deleteAllUsersButton.Size = new System.Drawing.Size(115, 46);
+            this.deleteAllUsersButton.TabIndex = 2;
+            this.deleteAllUsersButton.Text = "Delete";
+            this.deleteAllUsersButton.UseVisualStyleBackColor = true;
+            this.deleteAllUsersButton.Click += new System.EventHandler(this.deleteAllUsersButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(83, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(87, 87);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // logoutAdmin
+            // 
+            this.logoutAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutAdmin.FlatAppearance.BorderSize = 0;
+            this.logoutAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.logoutAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.logoutAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutAdmin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutAdmin.ForeColor = System.Drawing.Color.White;
+            this.logoutAdmin.Image = ((System.Drawing.Image)(resources.GetObject("logoutAdmin.Image")));
+            this.logoutAdmin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.logoutAdmin.Location = new System.Drawing.Point(55, 482);
+            this.logoutAdmin.Margin = new System.Windows.Forms.Padding(0);
+            this.logoutAdmin.Name = "logoutAdmin";
+            this.logoutAdmin.Size = new System.Drawing.Size(141, 73);
+            this.logoutAdmin.TabIndex = 5;
+            this.logoutAdmin.Text = "Logout";
+            this.logoutAdmin.UseVisualStyleBackColor = true;
+            this.logoutAdmin.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // aboutBtnAdmin
+            // 
+            this.aboutBtnAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.aboutBtnAdmin.FlatAppearance.BorderSize = 0;
+            this.aboutBtnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.aboutBtnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.aboutBtnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aboutBtnAdmin.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBtnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.aboutBtnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("aboutBtnAdmin.Image")));
+            this.aboutBtnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aboutBtnAdmin.Location = new System.Drawing.Point(-9, 334);
+            this.aboutBtnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.aboutBtnAdmin.Name = "aboutBtnAdmin";
+            this.aboutBtnAdmin.Size = new System.Drawing.Size(224, 42);
+            this.aboutBtnAdmin.TabIndex = 2;
+            this.aboutBtnAdmin.Text = "    ℹ️ About\r\n\r\n\r\n\r\n\r\n";
+            this.aboutBtnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aboutBtnAdmin.UseVisualStyleBackColor = false;
+            this.aboutBtnAdmin.Click += new System.EventHandler(this.aboutBtnAdmin_Click);
+            // 
+            // recordsBtn
+            // 
+            this.recordsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.FlatAppearance.BorderSize = 0;
+            this.recordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recordsBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.recordsBtn.Image = ((System.Drawing.Image)(resources.GetObject("recordsBtn.Image")));
+            this.recordsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.recordsBtn.Location = new System.Drawing.Point(-9, 277);
+            this.recordsBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recordsBtn.Name = "recordsBtn";
+            this.recordsBtn.Size = new System.Drawing.Size(224, 42);
+            this.recordsBtn.TabIndex = 3;
+            this.recordsBtn.Text = "    📁 Records\r\n\r\n\r\n\r\n\r\n";
+            this.recordsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.recordsBtn.UseVisualStyleBackColor = false;
+            this.recordsBtn.Click += new System.EventHandler(this.recordsBtn_Click);
+            // 
+            // statisticsBtn
+            // 
+            this.statisticsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.statisticsBtn.FlatAppearance.BorderSize = 0;
+            this.statisticsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.statisticsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.statisticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statisticsBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statisticsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(79)))));
+            this.statisticsBtn.Image = ((System.Drawing.Image)(resources.GetObject("statisticsBtn.Image")));
+            this.statisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statisticsBtn.Location = new System.Drawing.Point(-9, 220);
+            this.statisticsBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.statisticsBtn.Name = "statisticsBtn";
+            this.statisticsBtn.Size = new System.Drawing.Size(224, 42);
+            this.statisticsBtn.TabIndex = 4;
+            this.statisticsBtn.Text = "    📈 Statistics\r\n\r\n\r\n\r\n\r\n";
+            this.statisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statisticsBtn.UseVisualStyleBackColor = false;
+            this.statisticsBtn.Click += new System.EventHandler(this.statisticsBtn_Click);
+            // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(18)))), ((int)(((byte)(107)))));
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(1003, 34);
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
             // 
-            // genderChart
+            // linkLabel1
             // 
-            this.genderChart.BorderSkin.BackColor = System.Drawing.Color.Maroon;
-            chartArea4.Name = "ChartArea1";
-            this.genderChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.genderChart.Legends.Add(legend4);
-            this.genderChart.Location = new System.Drawing.Point(424, 255);
-            this.genderChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.genderChart.Name = "genderChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Gender Groups";
-            this.genderChart.Series.Add(series4);
-            this.genderChart.Size = new System.Drawing.Size(387, 352);
-            this.genderChart.TabIndex = 15;
-            this.genderChart.Text = "ageChart";
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(166, 487);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(195, 68);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "World Health \r\nOrganization";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.White;
+            this.linkLabel2.Location = new System.Drawing.Point(158, 486);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(195, 68);
+            this.linkLabel2.TabIndex = 12;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "World Health \r\nOrganization";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::vaccine_tracking_system.Properties.Resources.who_emblem;
+            this.pictureBox8.Location = new System.Drawing.Point(58, 481);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(84, 91);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 11;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::vaccine_tracking_system.Properties.Resources.Asset_9;
+            this.pictureBox9.Location = new System.Drawing.Point(58, 145);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(55, 286);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox9.TabIndex = 10;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.White;
+            this.label51.Location = new System.Drawing.Point(575, 55);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(205, 37);
+            this.label51.TabIndex = 4;
+            this.label51.Text = "#coronavirus";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(144, 389);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(249, 30);
+            this.label52.TabIndex = 5;
+            this.label52.Text = "Don\'t spread rumors";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(144, 299);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(557, 60);
+            this.label53.TabIndex = 6;
+            this.label53.Text = "To avoid spreading rumors, always check the \r\nsource you are getting information " +
+    "from";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(144, 231);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(562, 30);
+            this.label54.TabIndex = 7;
+            this.label54.Text = "Follow the news on latest coronavirus updates";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.White;
+            this.label55.Location = new System.Drawing.Point(144, 141);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(508, 60);
+            this.label55.TabIndex = 8;
+            this.label55.Text = "Follow accurate public health advice \r\nfrom WHO and your local health authority";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.White;
+            this.label56.Location = new System.Drawing.Point(48, 55);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(537, 37);
+            this.label56.TabIndex = 9;
+            this.label56.Text = "Be SMART and inform yourself about";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1872,14 +2116,11 @@ namespace vaccine_tracking_system
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.signUpPanel.ResumeLayout(false);
             this.signUpPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.adminPanel.ResumeLayout(false);
             this.statisticsPanel.ResumeLayout(false);
             this.statisticsPanel.PerformLayout();
@@ -1887,6 +2128,8 @@ namespace vaccine_tracking_system
             this.recordsPanel.ResumeLayout(false);
             this.recordsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridViewForAdmin)).EndInit();
+            this.aboutAdminPanel.ResumeLayout(false);
+            this.aboutAdminPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.userPanel.ResumeLayout(false);
             this.yourInfoPanel.ResumeLayout(false);
@@ -1894,12 +2137,21 @@ namespace vaccine_tracking_system
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.aboutUserPanel.ResumeLayout(false);
+            this.aboutUserPanel.PerformLayout();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -2052,6 +2304,24 @@ namespace vaccine_tracking_system
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart genderChart;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
     }
 }
 
